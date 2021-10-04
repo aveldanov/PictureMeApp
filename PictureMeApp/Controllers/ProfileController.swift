@@ -8,11 +8,16 @@
 import UIKit
 
 class ProfileController: UIViewController{
-    
+
+     //MARK: Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemOrange
+        view.backgroundColor = .systemPurple
     }
+    
+     //MARK: Helpers
+    
+    
     
 }
