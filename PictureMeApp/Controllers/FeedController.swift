@@ -50,7 +50,12 @@ extension FeedController {
 
 extension FeedController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 200)
+        
+        let width = view.frame.width
+        var height = 8+40+8+width // pad + prof pict + pad + postPict
+        height += 50 // actions
+        height += 60 // comments
+        return CGSize(width: width, height: height)
     }
     
     
