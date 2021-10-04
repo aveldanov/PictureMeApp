@@ -66,14 +66,14 @@ class FeedCell: UICollectionViewCell{
     private let likesLabel: UILabel = {
         let label = UILabel()
         label.text = "1 like"
-        label.font = UIFont.boldSystemFont(ofSize: 2)
+        label.font = UIFont.boldSystemFont(ofSize: 13)
         return label
     }()
     
     private let captionLabel: UILabel = {
         let label = UILabel()
         label.text = "Some test caption label"
-        label.font = UIFont.boldSystemFont(ofSize: 2)
+        label.font = UIFont.systemFont(ofSize: 14)
         return label
     }()
     
@@ -109,6 +109,16 @@ class FeedCell: UICollectionViewCell{
         
         //make sure to add after the postImageView as we are anchoring to it
         configureActionButtons()
+        
+        
+        addSubview(likesLabel)
+        likesLabel.anchor(top: likeButton.bottomAnchor, left: leftAnchor, paddingTop: -4, paddingLeft: 8)
+        
+        addSubview(captionLabel)
+        captionLabel.anchor(top: likesLabel.bottomAnchor, left: leftAnchor, paddingTop: 8, paddingLeft: 8)
+        
+        addSubview(postTimeLabel)
+        postTimeLabel.anchor(top: captionLabel.bottomAnchor, left: leftAnchor, paddingTop: 8, paddingLeft: 8)
     }
     
     

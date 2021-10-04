@@ -20,6 +20,8 @@
 		2196BB20270A7AC8000B04C2 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2196BB1F270A7AC8000B04C2 /* ProfileController.swift */; };
 		2196BB22270A8FE5000B04C2 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2196BB21270A8FE5000B04C2 /* FeedCell.swift */; };
 		2196BB24270A9079000B04C2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2196BB23270A9079000B04C2 /* Extensions.swift */; };
+		2196BB27270AA60B000B04C2 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2196BB26270AA60B000B04C2 /* LoginController.swift */; };
+		2196BB29270AA617000B04C2 /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2196BB28270AA617000B04C2 /* RegistrationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		2196BB1F270A7AC8000B04C2 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		2196BB21270A8FE5000B04C2 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		2196BB23270A9079000B04C2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		2196BB26270AA60B000B04C2 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		2196BB28270AA617000B04C2 /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,7 @@
 		2196BB12270A7896000B04C2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2196BB25270AA5F5000B04C2 /* Authentication */,
 				2196BB15270A792C000B04C2 /* MainTabController.swift */,
 				2196BB17270A7A93000B04C2 /* FeedController.swift */,
 				2196BB19270A7AA1000B04C2 /* SearchController.swift */,
@@ -134,6 +139,15 @@
 				2196BB23270A9079000B04C2 /* Extensions.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		2196BB25270AA5F5000B04C2 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				2196BB26270AA60B000B04C2 /* LoginController.swift */,
+				2196BB28270AA617000B04C2 /* RegistrationController.swift */,
+			);
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,6 +221,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2196BB27270AA60B000B04C2 /* LoginController.swift in Sources */,
 				2196BAFC270A77B8000B04C2 /* AppDelegate.swift in Sources */,
 				2196BB1A270A7AA1000B04C2 /* SearchController.swift in Sources */,
 				2196BB16270A792C000B04C2 /* MainTabController.swift in Sources */,
@@ -216,6 +231,7 @@
 				2196BB1C270A7AAC000B04C2 /* ImageSelectorController.swift in Sources */,
 				2196BB18270A7A93000B04C2 /* FeedController.swift in Sources */,
 				2196BB20270A7AC8000B04C2 /* ProfileController.swift in Sources */,
+				2196BB29270AA617000B04C2 /* RegistrationController.swift in Sources */,
 				2196BB22270A8FE5000B04C2 /* FeedCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
