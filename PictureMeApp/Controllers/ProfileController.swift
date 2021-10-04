@@ -16,8 +16,7 @@ class ProfileController: UIViewController{
         view.backgroundColor = .systemPurple
     }
     
-     //MARK: Helpers
     
-    
+
     
 }
