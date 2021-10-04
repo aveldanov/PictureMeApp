@@ -19,10 +19,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let mainTabController = MainTabController()
         window?.rootViewController = mainTabController
         
-        // fixing transparent tabbar in iOS 15.0
+        // fixing transparent tabbar/navbar in iOS 15.0
         if #available(iOS 15.0, *) {
-            let appearance = UITabBarAppearance()
-            UITabBar.appearance().scrollEdgeAppearance = appearance
+            let appearanceTabBar = UITabBarAppearance()
+            let appearanceNavBar = UINavigationBarAppearance()
+            UITabBar.appearance().scrollEdgeAppearance = appearanceTabBar
+            UINavigationBar.appearance().scrollEdgeAppearance = appearanceNavBar
         }
 
         window?.makeKeyAndVisible()
