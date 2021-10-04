@@ -85,7 +85,6 @@ class FeedCell: UICollectionViewCell{
         return label
     }()
     
-    private var stackView = UIStackView()
     
     
      //MARK: Lifecycle
@@ -108,6 +107,8 @@ class FeedCell: UICollectionViewCell{
         
         postImageView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 1).isActive = true
         
+        //make sure to add after the postImageView as we are anchoring to it
+        configureActionButtons()
     }
     
     
@@ -136,10 +137,11 @@ class FeedCell: UICollectionViewCell{
     
     func configureActionButtons(){
         
-        stackView.addSubview(arrangedSubviews: [likeButton, commentButton, shareButton])
+        let stackView = UIStackView(arrangedSubviews: [likeButton, commentButton, shareButton])
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
-        
+        addSubview(stackView)
+        stackView.anchor(top: postImageView.bottomAnchor, width: 120, height: 50)
         
     }
     
