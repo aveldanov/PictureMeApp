@@ -1,0 +1,10 @@
+# Picture-ME App [Firebase, NoStoryboard]
+
+## The app allows to take snapshots, share with friends, like and comment
+
+
+
+
+
+###### ->To delete after completion:
+###### CustomTextField, ButtonUI Extenstions
