@@ -22,6 +22,7 @@
 		2196BB24270A9079000B04C2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2196BB23270A9079000B04C2 /* Extensions.swift */; };
 		2196BB27270AA60B000B04C2 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2196BB26270AA60B000B04C2 /* LoginController.swift */; };
 		2196BB29270AA617000B04C2 /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2196BB28270AA617000B04C2 /* RegistrationController.swift */; };
+		2196BB2B270BE373000B04C2 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2196BB2A270BE373000B04C2 /* CustomTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		2196BB23270A9079000B04C2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		2196BB26270AA60B000B04C2 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		2196BB28270AA617000B04C2 /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
+		2196BB2A270BE373000B04C2 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				2196BB21270A8FE5000B04C2 /* FeedCell.swift */,
+				2196BB2A270BE373000B04C2 /* CustomTextField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2196BB2B270BE373000B04C2 /* CustomTextField.swift in Sources */,
 				2196BB27270AA60B000B04C2 /* LoginController.swift in Sources */,
 				2196BAFC270A77B8000B04C2 /* AppDelegate.swift in Sources */,
 				2196BB1A270A7AA1000B04C2 /* SearchController.swift in Sources */,
