@@ -17,11 +17,7 @@ extension UIViewController{
         view.layer.addSublayer(gradient)
         gradient.frame = view.bounds
     }
-    
-    
-    func testMe(){
-        
-    }
+
 }
 
 

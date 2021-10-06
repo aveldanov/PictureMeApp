@@ -96,7 +96,6 @@ class FeedCell: UICollectionViewCell{
         profileImageView.setDimensions(height: 40, width: 40)
         profileImageView.layer.cornerRadius = 40/2
         
-        
         addSubview(usernameButton)
         usernameButton.centerY(inView: profileImageView, leftAnchor: profileImageView.rightAnchor, paddingLeft: 8)
         

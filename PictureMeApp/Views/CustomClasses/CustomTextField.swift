@@ -13,7 +13,6 @@ class CustomTextField: UITextField{
     // Custom Init
     init(placeholder: String) {
         super.init(frame: .zero)
-        
         //add space to the left
         let spacer = UIView()
         spacer.setDimensions(height: 50, width: 12)

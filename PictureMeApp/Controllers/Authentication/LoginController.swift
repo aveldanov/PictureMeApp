@@ -35,13 +35,7 @@ class LoginController: UIViewController{
     }()
     
     private let loginButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Login", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .systemBlue
-        button.layer.cornerRadius = 5
-        button.setHeight(50)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        let button = CustomAuthButton(placeholder: "Login", type: .system)
         return button
     }()
     
@@ -67,7 +61,6 @@ class LoginController: UIViewController{
         
         let vc = RegistrationController()
         navigationController?.pushViewController(vc, animated: true)
-        
     }
     
     
