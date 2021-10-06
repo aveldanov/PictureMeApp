@@ -91,7 +91,6 @@ class FeedCell: UICollectionViewCell{
     override init(frame: CGRect) {
         super.init(frame: frame)
 //        backgroundColor = .white
-//
         addSubview(profileImageView)
         profileImageView.anchor(top: topAnchor, left: leftAnchor, paddingTop: 12, paddingLeft: 12)
         profileImageView.setDimensions(height: 40, width: 40)

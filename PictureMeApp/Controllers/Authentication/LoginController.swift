@@ -10,7 +10,7 @@ import UIKit
 
 class LoginController: UIViewController{
     
-     //MARK: Properties
+    //MARK: Properties
     
     private let iconImage: UIImageView = {
         let imageView = UIImageView(image: #imageLiteral(resourceName: "PictureMe"))
@@ -20,16 +20,16 @@ class LoginController: UIViewController{
     }()
     
     private let emailTextField: UITextField = {
-       let textField = CustomTextField(placeholder: "Email")
-
+        let textField = CustomTextField(placeholder: "Email")
+        
         textField.keyboardType = .emailAddress
-
+        
         return textField
     }()
     
     private let passwordTextField: UITextField = {
-       let textField = CustomTextField(placeholder: "Password")
-
+        let textField = CustomTextField(placeholder: "Password")
+        
         textField.isSecureTextEntry = true
         return textField
     }()
@@ -46,14 +46,6 @@ class LoginController: UIViewController{
     }()
     
     
-    private let dontHaveAccountButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.attributedTitle(firstPart: "Don't have an account?", secondPart: "Signup")
-        return button
-    }()
-    
-    
-    
     private let forgotPasswordButton: UIButton = {
         let button = UIButton(type: .system)
         button.attributedTitle(firstPart: "Forgot your password?", secondPart: "Get help signing in.")
@@ -61,7 +53,27 @@ class LoginController: UIViewController{
     }()
     
     
-     //MARK: Lifecycle
+    private let dontHaveAccountButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.attributedTitle(firstPart: "Don't have an account?", secondPart: "Signup")
+        button.addTarget(self, action: #selector(handleShowSignup), for: .touchUpInside)
+        return button
+    }()
+    
+    
+    //MARK: Actions
+    
+    @objc func handleShowSignup(){
+        
+        let vc = RegistrationController()
+        navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    
+    
+    
+    
+    //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -70,18 +82,13 @@ class LoginController: UIViewController{
     
     
     
-     //MARK: Helpers
+    //MARK: Helpers
     
     func configureUI(){
-//        view.backgroundColor = .white
+        configureGradientLayer()
+        
         navigationController?.navigationBar.isHidden = true
         navigationController?.navigationBar.barStyle = .black
-        
-        let gradient = CAGradientLayer()
-        gradient.colors = [UIColor.systemBlue.cgColor, UIColor.systemMint.cgColor]
-        gradient.locations = [0, 1]
-        view.layer.addSublayer(gradient)
-        gradient.frame = view.bounds
         
         view.addSubview(iconImage)
         iconImage.centerX(inView: view)
