@@ -21,27 +21,46 @@ class RegistrationController: UIViewController{
     
     
     private let emailTextField: UITextField = {
-        let textField = CustomTextField(placeholder: "Email")
+        let textField = CustomAuthTextField(placeholder: "Email")
         textField.keyboardType = .emailAddress
         return textField
     }()
     
     private let passwordTextField: UITextField = {
-        let textField = CustomTextField(placeholder: "Password")
+        let textField = CustomAuthTextField(placeholder: "Password")
         textField.isSecureTextEntry = true
         return textField
     }()
     
     //Shorten version of Properties declaration. When parameters are default
-    private let fullnameTextField: UITextField = CustomTextField(placeholder: "Fullname")
+    private let fullnameTextField: UITextField = CustomAuthTextField(placeholder: "Fullname")
     
-    private let usernameTextField: UITextField = CustomTextField(placeholder: "Username")
+    private let usernameTextField: UITextField = CustomAuthTextField(placeholder: "Username")
     
     private let signupButton: UIButton = {
         let button = CustomAuthButton(placeholder: "Sign Up", type: .system)
         return button
     }()
+    
+    
+    private let alreadyHaveAccountButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.attributedTitle(firstPart: "Already have an account?", secondPart: "Login")
+        button.addTarget(self, action: #selector(handleShowLogin), for: .touchUpInside)
+        return button
+    }()
 
+    
+     //MARK: Actions
+    
+    @objc private func handleShowLogin(){
+        
+        navigationController?.popViewController(animated: true)
+        
+    }
+    
+    
+    
     
      //MARK: Lifecycle
     override func viewDidLoad() {
@@ -67,6 +86,10 @@ class RegistrationController: UIViewController{
        view.addSubview(stack)
        stack.anchor(top: plusPhotoButton.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 32, paddingLeft: 32, paddingRight: 32)
        
+       
+       view.addSubview(alreadyHaveAccountButton)
+       alreadyHaveAccountButton.centerX(inView: view)
+       alreadyHaveAccountButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor)
        
     }
     

@@ -20,7 +20,7 @@ class LoginController: UIViewController{
     }()
     
     private let emailTextField: UITextField = {
-        let textField = CustomTextField(placeholder: "Email")
+        let textField = CustomAuthTextField(placeholder: "Email")
         
         textField.keyboardType = .emailAddress
         
@@ -28,7 +28,7 @@ class LoginController: UIViewController{
     }()
     
     private let passwordTextField: UITextField = {
-        let textField = CustomTextField(placeholder: "Password")
+        let textField = CustomAuthTextField(placeholder: "Password")
         
         textField.isSecureTextEntry = true
         return textField
@@ -57,7 +57,7 @@ class LoginController: UIViewController{
     
     //MARK: Actions
     
-    @objc func handleShowSignup(){
+    @objc private func handleShowSignup(){
         
         let vc = RegistrationController()
         navigationController?.pushViewController(vc, animated: true)

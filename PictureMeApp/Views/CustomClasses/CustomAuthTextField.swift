@@ -8,7 +8,7 @@
 import UIKit
 
 
-class CustomTextField: UITextField{
+class CustomAuthTextField: UITextField{
     
     // Custom Init
     init(placeholder: String) {
@@ -19,6 +19,7 @@ class CustomTextField: UITextField{
         leftView = spacer
         leftViewMode = .always
         
+        layer.cornerRadius = 5
         borderStyle = .none
         textColor = .white
         keyboardAppearance = .dark
