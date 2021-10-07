@@ -26,6 +26,7 @@
 		2196BB2D270BE9D9000B04C2 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2196BB2C270BE9D9000B04C2 /* README.md */; };
 		2196BB2F270D7C7B000B04C2 /* CustomAuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2196BB2E270D7C7B000B04C2 /* CustomAuthButton.swift */; };
 		2196BB35270E7B0C000B04C2 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2196BB34270E7B0C000B04C2 /* AuthenticationViewModel.swift */; };
+		2196BB37270EE1A8000B04C2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2196BB36270EE1A8000B04C2 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		2196BB2C270BE9D9000B04C2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		2196BB2E270D7C7B000B04C2 /* CustomAuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAuthButton.swift; sourceTree = "<group>"; };
 		2196BB34270E7B0C000B04C2 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
+		2196BB36270EE1A8000B04C2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 				2196BB04270A77BA000B04C2 /* Assets.xcassets */,
 				2196BB06270A77BA000B04C2 /* LaunchScreen.storyboard */,
 				2196BB09270A77BA000B04C2 /* Info.plist */,
+				2196BB36270EE1A8000B04C2 /* GoogleService-Info.plist */,
 			);
 			path = PictureMeApp;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 			files = (
 				2196BB08270A77BA000B04C2 /* LaunchScreen.storyboard in Resources */,
 				2196BB05270A77BA000B04C2 /* Assets.xcassets in Resources */,
+				2196BB37270EE1A8000B04C2 /* GoogleService-Info.plist in Resources */,
 				2196BB2D270BE9D9000B04C2 /* README.md in Resources */,
 				2196BB03270A77B8000B04C2 /* Main.storyboard in Resources */,
 			);
