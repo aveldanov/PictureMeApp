@@ -12,6 +12,8 @@ class LoginController: UIViewController{
     
     //MARK: Properties
     
+    private var viewModel = LoginViewModel()
+    
     private let iconImage: UIImageView = {
         let imageView = UIImageView(image: #imageLiteral(resourceName: "PictureMe"))
         imageView.tintColor = .white
@@ -63,14 +65,25 @@ class LoginController: UIViewController{
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    @objc private func textDidChange(sender: UITextField){
+        
+        if sender == emailTextField{
+            viewModel.email = sender.text
+        }else{
+            viewModel.passowrd = sender.text
+        }
+
+        updateForm()
+    }
+    
     
     
     
     //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configureUI()
+        configureNotificationsObservers()
     }
     
     
@@ -103,4 +116,24 @@ class LoginController: UIViewController{
         dontHaveAccountButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor)
     }
     
+    
+    
+    // textField Observers for text change
+   private func configureNotificationsObservers(){
+        emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        
+        passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+    }    
+}
+
+
+
+ //MARK: FormViewModel
+
+extension LoginController: FormViewModelProtocol{
+    func updateForm() {
+        loginButton.backgroundColor = viewModel.buttonBackgroundColor
+        loginButton.setTitleColor(viewModel.buttonTitleColor, for: .normal)
+        loginButton.isEnabled = viewModel.formIsValid
+    }
 }

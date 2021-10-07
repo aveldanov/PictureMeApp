@@ -14,11 +14,12 @@ class CustomAuthButton: UIButton{
         
         
         setTitle(placeholder, for: .normal)
-        setTitleColor(.white, for: .normal)
-        backgroundColor = .systemBlue
+        setTitleColor(UIColor(white: 1, alpha: 0.67), for: .normal)
+        backgroundColor = .systemBlue.withAlphaComponent(0.3)
         layer.cornerRadius = 5
         setHeight(50)
         titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        isEnabled = false
     }
     
     required init?(coder: NSCoder) {
