@@ -42,6 +42,7 @@ class RegistrationController: UIViewController{
     
     private let signupButton: UIButton = {
         let button = CustomAuthButton(placeholder: "Sign Up", type: .system)
+        button.addTarget(self, action: #selector(handleSignUp), for: .touchUpInside)
         return button
     }()
     
@@ -95,6 +96,12 @@ class RegistrationController: UIViewController{
         picker.allowsEditing = true
         
         present(picker, animated: true, completion: nil)
+    }
+    
+    @objc private func handleSignUp(){
+        
+        
+        
     }
     
     

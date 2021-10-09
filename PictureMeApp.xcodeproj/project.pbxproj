@@ -27,9 +27,13 @@
 		2196BB2F270D7C7B000B04C2 /* CustomAuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2196BB2E270D7C7B000B04C2 /* CustomAuthButton.swift */; };
 		2196BB35270E7B0C000B04C2 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2196BB34270E7B0C000B04C2 /* AuthenticationViewModel.swift */; };
 		2196BB37270EE1A8000B04C2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2196BB36270EE1A8000B04C2 /* GoogleService-Info.plist */; };
+		21E8E21F2711341300A0F20F /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E8E21E2711341300A0F20F /* ImageUploader.swift */; };
+		21E8E2212711341E00A0F20F /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E8E2202711341E00A0F20F /* AuthService.swift */; };
+		BB60E7FFCEF9F439864C0864 /* Pods_PictureMeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 143AF4DD4B1F918A7ED38B2B /* Pods_PictureMeApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		143AF4DD4B1F918A7ED38B2B /* Pods_PictureMeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PictureMeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2196BAF8270A77B8000B04C2 /* PictureMeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PictureMeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2196BAFB270A77B8000B04C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2196BAFD270A77B8000B04C2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,6 +56,10 @@
 		2196BB2E270D7C7B000B04C2 /* CustomAuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAuthButton.swift; sourceTree = "<group>"; };
 		2196BB34270E7B0C000B04C2 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		2196BB36270EE1A8000B04C2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		21E8E21E2711341300A0F20F /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
+		21E8E2202711341E00A0F20F /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		487FD439B676D3D3CDC655AD /* Pods-PictureMeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PictureMeApp.debug.xcconfig"; path = "Target Support Files/Pods-PictureMeApp/Pods-PictureMeApp.debug.xcconfig"; sourceTree = "<group>"; };
+		B7D5D426F1B6452B6475CE2E /* Pods-PictureMeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PictureMeApp.release.xcconfig"; path = "Target Support Files/Pods-PictureMeApp/Pods-PictureMeApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB60E7FFCEF9F439864C0864 /* Pods_PictureMeApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +80,8 @@
 				2196BB2C270BE9D9000B04C2 /* README.md */,
 				2196BAFA270A77B8000B04C2 /* PictureMeApp */,
 				2196BAF9270A77B8000B04C2 /* Products */,
+				B7EC4585C3142B5BA8312BE4 /* Pods */,
+				FFF410B501E8AFD913B1579B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -143,6 +154,8 @@
 		2196BB13270A78B2000B04C2 /* APICaller */ = {
 			isa = PBXGroup;
 			children = (
+				21E8E21E2711341300A0F20F /* ImageUploader.swift */,
+				21E8E2202711341E00A0F20F /* AuthService.swift */,
 			);
 			path = APICaller;
 			sourceTree = "<group>";
@@ -173,6 +186,23 @@
 			path = CustomClasses;
 			sourceTree = "<group>";
 		};
+		B7EC4585C3142B5BA8312BE4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				487FD439B676D3D3CDC655AD /* Pods-PictureMeApp.debug.xcconfig */,
+				B7D5D426F1B6452B6475CE2E /* Pods-PictureMeApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		FFF410B501E8AFD913B1579B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				143AF4DD4B1F918A7ED38B2B /* Pods_PictureMeApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -180,9 +210,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2196BB0C270A77BA000B04C2 /* Build configuration list for PBXNativeTarget "PictureMeApp" */;
 			buildPhases = (
+				CDC87539E802403571E9043E /* [CP] Check Pods Manifest.lock */,
 				2196BAF4270A77B8000B04C2 /* Sources */,
 				2196BAF5270A77B8000B04C2 /* Frameworks */,
 				2196BAF6270A77B8000B04C2 /* Resources */,
+				DF40601B00EA680204258D7F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -241,6 +273,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		CDC87539E802403571E9043E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PictureMeApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DF40601B00EA680204258D7F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PictureMeApp/Pods-PictureMeApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PictureMeApp/Pods-PictureMeApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PictureMeApp/Pods-PictureMeApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2196BAF4270A77B8000B04C2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -259,6 +333,8 @@
 				2196BB1C270A7AAC000B04C2 /* ImageSelectorController.swift in Sources */,
 				2196BB18270A7A93000B04C2 /* FeedController.swift in Sources */,
 				2196BB20270A7AC8000B04C2 /* ProfileController.swift in Sources */,
+				21E8E21F2711341300A0F20F /* ImageUploader.swift in Sources */,
+				21E8E2212711341E00A0F20F /* AuthService.swift in Sources */,
 				2196BB29270AA617000B04C2 /* RegistrationController.swift in Sources */,
 				2196BB22270A8FE5000B04C2 /* FeedCell.swift in Sources */,
 			);
@@ -404,6 +480,7 @@
 		};
 		2196BB0D270A77BA000B04C2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 487FD439B676D3D3CDC655AD /* Pods-PictureMeApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -432,6 +509,7 @@
 		};
 		2196BB0E270A77BA000B04C2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B7D5D426F1B6452B6475CE2E /* Pods-PictureMeApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

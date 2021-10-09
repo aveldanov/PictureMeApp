@@ -1,0 +1,6 @@
+framework module Pods_PictureMeApp {
+  umbrella header "Pods-PictureMeApp-umbrella.h"
+
+  export *
+  module * { export * }
+}
