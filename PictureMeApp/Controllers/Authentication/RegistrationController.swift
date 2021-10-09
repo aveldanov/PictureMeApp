@@ -101,7 +101,6 @@ class RegistrationController: UIViewController{
     @objc private func handleSignUp(){
         
         
-        
     }
     
     
