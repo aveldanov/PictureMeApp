@@ -20,9 +20,9 @@ struct AuthCredentials{
 
 struct AuthService{
     
-    static func registerUser(){
+    static func registerUser(withCredentials credentials: AuthCredentials){
         
-        
+        print("Debug: credentials \(credentials) ")
         
     }
     

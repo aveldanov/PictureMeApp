@@ -14,6 +14,8 @@ class RegistrationController: UIViewController{
     
     private var viewModel = RegistrationViewModel()
     
+    private var profileImage: UIImage? // when we open the screen value does not exist therefore - optional
+    
     private let plusPhotoButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(#imageLiteral(resourceName: "plus_photo"), for: .normal)
@@ -99,7 +101,15 @@ class RegistrationController: UIViewController{
     }
     
     @objc private func handleSignUp(){
+        guard let email = emailTextField.text else {return}
+        guard let password = passwordTextField.text else {return}
+        guard let fullname = fullnameTextField.text else {return}
+        guard let username = usernameTextField.text else {return}
+        guard let profileImage = profileImage else {return}
         
+        let credentials = AuthCredentials(email: email, password: password, fullname: fullname, username: username, profileImage: profileImage)
+        
+        AuthService.registerUser(withCredentials: credentials)
         
     }
     
@@ -172,6 +182,8 @@ extension RegistrationController: UIImagePickerControllerDelegate, UINavigationC
         guard let selectedImage = info[.editedImage] as? UIImage else{
             return
         }
+        
+        profileImage = selectedImage
         
         plusPhotoButton.layer.cornerRadius = plusPhotoButton.frame.width/2
         plusPhotoButton.layer.masksToBounds = true
