@@ -20,6 +20,14 @@ struct AuthCredentials{
 
 struct AuthService{
     
+    static func logUserIn(withEmail email: String, password: String, completion: AuthDataResultCallback?){
+        Auth.auth().signIn(withEmail: email, password: password, completion: completion)
+    }
+    
+    
+    
+    
+    
     static func registerUser(withCredentials credentials: AuthCredentials, completion: @escaping (Error?)->Void){
         
         

@@ -15,6 +15,7 @@ class MainTabController: UITabBarController{
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewControllers()
+        checkIfUserIsLoggedIn()
     }
     
     
@@ -26,14 +27,13 @@ class MainTabController: UITabBarController{
                 let vc = LoginController()
                 let nav = UINavigationController(rootViewController: vc)
                 nav.modalPresentationStyle = .fullScreen
-                present(nav, animated: true, completion: nil)
+                self.present(nav, animated: true, completion: nil)
             }
-        }else{
-            
         }
-        
-        
     }
+    
+
+    
     
      //MARK: Helpers
     

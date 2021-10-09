@@ -110,11 +110,12 @@ class RegistrationController: UIViewController{
         let credentials = AuthCredentials(email: email, password: password, fullname: fullname, username: username, profileImage: profileImage)
         AuthService.registerUser(withCredentials: credentials) { error in
             if let error = error {
-                print("[RegistrationController] ImageUploaderError")
+                print("[RegistrationController] failed to register \(error.localizedDescription)")
                 return
             }
-            print("Successfully registered")
-
+            print("[RegistrationController] Successfully registered")
+            // Take back to main controller
+            self.dismiss(animated: true, completion: nil)
         }
         
     }
