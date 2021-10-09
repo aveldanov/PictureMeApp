@@ -10,7 +10,7 @@ import UIKit
 class ProfileHeader: UICollectionReusableView{
     
      //MARK: Properties
-    
+    static let identifier = "ProfileHeader"
     
      //MARK: Lifecycle
     
