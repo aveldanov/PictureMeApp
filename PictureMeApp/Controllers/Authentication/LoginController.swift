@@ -38,6 +38,7 @@ class LoginController: UIViewController{
     
     private let loginButton: UIButton = {
         let button = CustomAuthButton(placeholder: "Login", type: .system)
+        button.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
         return button
     }()
     
@@ -74,6 +75,12 @@ class LoginController: UIViewController{
         }
 
         updateForm()
+    }
+    
+    
+    @objc private func handleLogin(){
+        
+        print("YOOOOOOOOOO")
     }
     
     
@@ -134,6 +141,6 @@ extension LoginController: FormViewModelProtocol{
     func updateForm() {
         loginButton.backgroundColor = viewModel.buttonBackgroundColor
         loginButton.setTitleColor(viewModel.buttonTitleColor, for: .normal)
-        loginButton.isEnabled = viewModel.formIsValid
+//        loginButton.isEnabled = viewModel.formIsValid
     }
 }

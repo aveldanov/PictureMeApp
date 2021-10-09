@@ -105,12 +105,16 @@ class RegistrationController: UIViewController{
         guard let password = passwordTextField.text else {return}
         guard let fullname = fullnameTextField.text else {return}
         guard let username = usernameTextField.text else {return}
-        guard let profileImage = profileImage else {return}
-        
+        guard let profileImage = self.profileImage else {return}
+
         let credentials = AuthCredentials(email: email, password: password, fullname: fullname, username: username, profileImage: profileImage)
-        
         AuthService.registerUser(withCredentials: credentials)
-        
+    }
+    
+    //Calls this function when the tap is recognized.
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
     
@@ -122,6 +126,14 @@ class RegistrationController: UIViewController{
         super.viewDidLoad()
         configureUI()
         configureNotificationsObservers()
+        
+        //Looks for single or multiple taps.
+         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+
+        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+        //tap.cancelsTouchesInView = false
+
+        view.addGestureRecognizer(tap)
     }
     
     
@@ -168,7 +180,7 @@ extension RegistrationController: FormViewModelProtocol{
     func updateForm() {
         signupButton.backgroundColor = viewModel.buttonBackgroundColor
         signupButton.setTitleColor(viewModel.buttonTitleColor, for: .normal)
-        signupButton.isEnabled = viewModel.formIsValid
+//        signupButton.isEnabled = viewModel.formIsValid
     }
 }
 

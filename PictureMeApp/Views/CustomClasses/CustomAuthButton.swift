@@ -19,7 +19,7 @@ class CustomAuthButton: UIButton{
         layer.cornerRadius = 5
         setHeight(50)
         titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
-        isEnabled = false
+//        isEnabled = false
     }
     
     required init?(coder: NSCoder) {
