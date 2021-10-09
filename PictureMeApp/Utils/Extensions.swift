@@ -21,6 +21,17 @@ extension UIViewController{
 }
 
 
+// Followers/Following Label Extension
+extension UILabel{
+    func attributedStatText(label: String, value: Int){
+        let attributedTextLabel = NSMutableAttributedString(string: "\(value)\n", attributes: [.font: UIFont.systemFont(ofSize: 14)])
+        
+        attributedTextLabel.append(NSAttributedString(string: label, attributes: [.font: UIFont.systemFont(ofSize: 14), .foregroundColor: UIColor.lightGray]))
+        attributedText = attributedTextLabel
+    }
+}
+
+
 
 // Create sign buttons extension
 extension UIButton{

@@ -23,7 +23,7 @@ class ProfileController: UICollectionViewController{
      //MARK: Helpers
     
     private func configureCollectionView(){
-        collectionView.backgroundColor = .blue
+        collectionView.backgroundColor = .lightGray
         
         //cell
         collectionView.register(ProfileCell.self, forCellWithReuseIdentifier: ProfileCell.identifier)
@@ -78,11 +78,18 @@ extension ProfileController: UICollectionViewDelegateFlowLayout{
         return 1
     }
 
-    
+    // cell size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let size = (view.frame.width - 2)/3
         
         return CGSize(width: size, height: size)
+    }
+    
+    // header size
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        
+        return CGSize(width: view.frame.width, height: 240)
+        
     }
     
     
