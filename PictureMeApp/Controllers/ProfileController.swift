@@ -7,8 +7,11 @@
 
 import UIKit
 
-class ProfileController: UIViewController{
+class ProfileController: UICollectionViewController{
 
+     //MARK: Properties
+    
+    
      //MARK: Lifecycle
     
     override func viewDidLoad() {
@@ -16,6 +19,15 @@ class ProfileController: UIViewController{
         view.backgroundColor = .systemPurple
     }
     
+    
+     //MARK: Helpers
+    
+    private func configureCollectionView(){
+        collectionView.backgroundColor = .white
+        
+
+        
+    }
     
 
     
