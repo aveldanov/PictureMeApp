@@ -21,13 +21,11 @@ class ProfileController: UICollectionViewController{
     
     private var user: User
 
-    
-
      //MARK: Lifecycle
     
     init(user: User){
-        super.init(collectionViewLayout: UICollectionViewLayout())
         self.user = user
+        super.init(collectionViewLayout: UICollectionViewFlowLayout())
     }
     
     required init?(coder: NSCoder) {
@@ -37,25 +35,20 @@ class ProfileController: UICollectionViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollectionView()
-        fetchUserCall()
     }
     
     
      //MARK: API Calls
-    
-    func fetchUserCall(){
-        
-        UserService.fetchUser { user in
-            self.user = user
-            self.navigationItem.title = user.username
-        }
-        
-    }
+
     
     
      //MARK: Helpers
     
     private func configureCollectionView(){
+        
+        navigationItem.title = user.username
+        
+        
         collectionView.backgroundColor = .lightGray
         
         //cell

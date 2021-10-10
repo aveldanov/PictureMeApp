@@ -10,12 +10,23 @@ import Firebase
 
 class MainTabController: UITabBarController{
     
+     //MARK: Properties
+    
+    private var user: User?{
+        didSet{
+            guard let user = user else {return}
+            configureViewControllers(withUser: user)
+        }
+    }
+    
+    
+    
      //MARK: Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureViewControllers()
         checkIfUserIsLoggedIn()
+        fetchUserCall()
     }
     
     
@@ -33,12 +44,18 @@ class MainTabController: UITabBarController{
         }
     }
     
+    
+    func fetchUserCall(){
+        UserService.fetchUser { user in
+            self.user = user
+        }
+    }
 
     
     
      //MARK: Helpers
     
-    func configureViewControllers(){
+    func configureViewControllers(withUser user: User){
         // store instance to put them into an array
 //        view.backgroundColor = .white
 
@@ -50,8 +67,10 @@ class MainTabController: UITabBarController{
         let notifications = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "like_unselected"), selectedImage: #imageLiteral(resourceName: "like_selected"), rootViewController: NotificationsController())
         
         
-        let profileLayout = UICollectionViewFlowLayout()
-        let profile = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "profile_unselected"), selectedImage: #imageLiteral(resourceName: "profile_selected"), rootViewController: ProfileController(collectionViewLayout: profileLayout))
+//        let profileLayout = UICollectionViewFlowLayout()
+        
+        let profileController = ProfileController(user: user)
+        let profile = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "profile_unselected"), selectedImage: #imageLiteral(resourceName: "profile_selected"), rootViewController: profileController)
         
         viewControllers = [feed, search, imageSelector, notifications, profile]
         tabBar.tintColor = .black
@@ -73,10 +92,13 @@ class MainTabController: UITabBarController{
 }
 
 
+
+ //MARK: AuthProtocolDelegate
+
 extension MainTabController: AuthProtocolDelegate{
     func authDidComplete() {
         print("[MainTabController] auth did complete. Fetch user and update here")
-        
+        fetchUserCall()
         self.dismiss(animated: true, completion: nil)
 
     }

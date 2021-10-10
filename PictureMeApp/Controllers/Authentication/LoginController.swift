@@ -72,6 +72,7 @@ class LoginController: UIViewController{
     @objc private func handleShowSignup(){
         
         let vc = RegistrationController()
+        vc.delegate = delegate
         navigationController?.pushViewController(vc, animated: true)
     }
     

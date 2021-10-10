@@ -12,6 +12,9 @@ private let identifier = "Cell"
 
 class FeedController: UICollectionViewController{
     
+    weak var delegate: AuthProtocolDelegate?
+    
+    
     
      //MARK: Lifecycle
     override func viewDidLoad() {
@@ -40,7 +43,7 @@ class FeedController: UICollectionViewController{
             try Auth.auth().signOut()
             let vc = LoginController()
             vc.delegate = self.tabBarController as? MainTabController
-
+//            vc.delegate = delegate
             let nav = UINavigationController(rootViewController: vc)
             nav.modalPresentationStyle = .fullScreen
             

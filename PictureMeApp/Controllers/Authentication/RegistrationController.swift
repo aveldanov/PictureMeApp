@@ -16,6 +16,9 @@ class RegistrationController: UIViewController{
     
     private var profileImage: UIImage? // when we open the screen value does not exist therefore - optional
     
+    weak var delegate: AuthProtocolDelegate?
+    
+    
     private let plusPhotoButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(#imageLiteral(resourceName: "plus_photo"), for: .normal)
@@ -114,8 +117,8 @@ class RegistrationController: UIViewController{
                 return
             }
             print("[RegistrationController] Successfully registered")
-            // Take back to main controller
-            self.dismiss(animated: true, completion: nil)
+            
+            self.delegate?.authDidComplete()
         }
         
     }
