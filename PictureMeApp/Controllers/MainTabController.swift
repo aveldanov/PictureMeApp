@@ -25,6 +25,7 @@ class MainTabController: UITabBarController{
         if Auth.auth().currentUser == nil{
             DispatchQueue.main.async {
                 let vc = LoginController()
+                vc.delegate = self
                 let nav = UINavigationController(rootViewController: vc)
                 nav.modalPresentationStyle = .fullScreen
                 self.present(nav, animated: true, completion: nil)
@@ -67,6 +68,20 @@ class MainTabController: UITabBarController{
         
         return nav
     }
+    
+    
+}
+
+
+extension MainTabController: AuthProtocolDelegate{
+    func authDidComplete() {
+        print("[MainTabController] auth did complete. Fetch user and update here")
+        
+        self.dismiss(animated: true, completion: nil)
+
+    }
+    
+    
     
     
 }

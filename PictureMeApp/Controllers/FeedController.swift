@@ -39,8 +39,11 @@ class FeedController: UICollectionViewController{
         do{
             try Auth.auth().signOut()
             let vc = LoginController()
+            vc.delegate = self.tabBarController as? MainTabController
+
             let nav = UINavigationController(rootViewController: vc)
             nav.modalPresentationStyle = .fullScreen
+            
             self.present(nav, animated: true, completion: nil)
         } catch{
             print("[MainTabController] Failed to sign out")

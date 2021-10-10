@@ -7,12 +7,20 @@
 
 import UIKit
 
+protocol AuthProtocolDelegate: AnyObject{
+    
+    func authDidComplete()
+    
+}
+
 
 class LoginController: UIViewController{
     
     //MARK: Properties
     
     private var viewModel = LoginViewModel()
+    
+    weak var delegate: AuthProtocolDelegate?
     
     private let iconImage: UIImageView = {
         let imageView = UIImageView(image: #imageLiteral(resourceName: "PictureMe"))
@@ -88,9 +96,11 @@ class LoginController: UIViewController{
                 print("[LoginController] failed to log in \(error.localizedDescription)")
                 return
             }
+            
             print("[LoginController] Successfully logged in")
             
-            self.dismiss(animated: true, completion: nil)
+            self.delegate?.authDidComplete()
+            
         }
     }
     

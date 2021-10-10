@@ -13,14 +13,26 @@ class ProfileController: UICollectionViewController{
     
     //user observer needed as we start off with an empty value
     // Could have put it within completion handler
-    var user: User?{
-        didSet{
-            self.collectionView.reloadData()
-        }
-    }
+//    var user: User?{
+//        didSet{
+//            self.collectionView.reloadData()
+//        }
+//    }
+    
+    private var user: User
+
     
 
      //MARK: Lifecycle
+    
+    init(user: User){
+        super.init(collectionViewLayout: UICollectionViewLayout())
+        self.user = user
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,11 +88,10 @@ extension ProfileController{
         print("[ProfileController] header called")
 
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: ProfileHeader.identifier, for: indexPath) as! ProfileHeader
-        if let user = user{
+       
             header.viewModel = ProfileHeaderViewModel(user: user)
-        }else{
-            print("[ProfileController] user has not been set")
-        }
+//            print("[ProfileController] user has not been set")
+        
  
         return header
         
