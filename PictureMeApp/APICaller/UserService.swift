@@ -20,7 +20,7 @@ struct UserService{
             
             let user = User(dict: dict)
             
-            print(user)
+            completion(user)
             
         }
         

@@ -6,15 +6,24 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ProfileHeader: UICollectionReusableView{
     
      //MARK: Properties
     static let identifier = "ProfileHeader"
     
+    var viewModel: ProfileHeaderViewModel?{
+        didSet{
+            configure()
+        }
+    }
+    
+    
     private let profileImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = #imageLiteral(resourceName: "venom-7")
+//        imageView.image = #imageLiteral(resourceName: "venom-7")
+        imageView.backgroundColor = .lightGray
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
@@ -23,7 +32,7 @@ class ProfileHeader: UICollectionReusableView{
     
     private let nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Anton V"
+//        label.text = "Anton V"
         label.font = UIFont.boldSystemFont(ofSize: 14)
         label.textColor = .black
         label.textAlignment = .center
@@ -167,13 +176,14 @@ class ProfileHeader: UICollectionReusableView{
      //MARK: Helpers
     
     
-//    private func attributedStatText(label: String, value: Int) -> NSAttributedString{
-//        let attributedText = NSMutableAttributedString(string: "\(value)\n", attributes: [.font: UIFont.systemFont(ofSize: 14)])
-//        
-//        attributedText.append(NSAttributedString(string: label, attributes: [.font: UIFont.systemFont(ofSize: 14), .foregroundColor: UIColor.lightGray]))
-//        
-//        return attributedText
-//    }
-    
-    
+    private func configure(){
+        print("[ProfileHeader] configure called...")
+        guard let viewModel = viewModel else {
+            return
+        }
+        
+        nameLabel.text = viewModel.fullname
+        profileImageView.sd_setImage(with: viewModel.profileImageURL, completed: nil)
+        
+    }
 }

@@ -34,6 +34,7 @@
 		21E8E24C2712749700A0F20F /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E8E24B2712749700A0F20F /* UserService.swift */; };
 		21E8E24E2712750C00A0F20F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E8E24D2712750C00A0F20F /* Constants.swift */; };
 		21E8E25027127AAB00A0F20F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E8E24F27127AAB00A0F20F /* User.swift */; };
+		21E8E2522712947900A0F20F /* ProfileHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E8E2512712947900A0F20F /* ProfileHeaderViewModel.swift */; };
 		BB60E7FFCEF9F439864C0864 /* Pods_PictureMeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 143AF4DD4B1F918A7ED38B2B /* Pods_PictureMeApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +69,7 @@
 		21E8E24B2712749700A0F20F /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		21E8E24D2712750C00A0F20F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		21E8E24F27127AAB00A0F20F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		21E8E2512712947900A0F20F /* ProfileHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderViewModel.swift; sourceTree = "<group>"; };
 		487FD439B676D3D3CDC655AD /* Pods-PictureMeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PictureMeApp.debug.xcconfig"; path = "Target Support Files/Pods-PictureMeApp/Pods-PictureMeApp.debug.xcconfig"; sourceTree = "<group>"; };
 		B7D5D426F1B6452B6475CE2E /* Pods-PictureMeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PictureMeApp.release.xcconfig"; path = "Target Support Files/Pods-PictureMeApp/Pods-PictureMeApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -106,12 +108,12 @@
 		2196BAFA270A77B8000B04C2 /* PictureMeApp */ = {
 			isa = PBXGroup;
 			children = (
-				2196BB14270A78BD000B04C2 /* Utils */,
 				2196BB13270A78B2000B04C2 /* APICaller */,
-				2196BB12270A7896000B04C2 /* Controllers */,
-				2196BB11270A788A000B04C2 /* ViewModels */,
-				2196BB10270A7884000B04C2 /* Views */,
 				2196BB0F270A785B000B04C2 /* Models */,
+				2196BB10270A7884000B04C2 /* Views */,
+				2196BB11270A788A000B04C2 /* ViewModels */,
+				2196BB12270A7896000B04C2 /* Controllers */,
+				2196BB14270A78BD000B04C2 /* Utils */,
 				2196BAFB270A77B8000B04C2 /* AppDelegate.swift */,
 				2196BAFD270A77B8000B04C2 /* SceneDelegate.swift */,
 				2196BB01270A77B8000B04C2 /* Main.storyboard */,
@@ -134,7 +136,7 @@
 		2196BB10270A7884000B04C2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2196BB21270A8FE5000B04C2 /* FeedCell.swift */,
+				21E8E253271298C700A0F20F /* Feed */,
 				21E8E22627120CA200A0F20F /* Profile */,
 				2196BB30270D7CF1000B04C2 /* CustomClasses */,
 			);
@@ -145,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				2196BB34270E7B0C000B04C2 /* AuthenticationViewModel.swift */,
+				21E8E2512712947900A0F20F /* ProfileHeaderViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -203,10 +206,18 @@
 		21E8E22627120CA200A0F20F /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				21E8E22227120C8000A0F20F /* ProfileCell.swift */,
 				21E8E22427120C9200A0F20F /* ProfileHeader.swift */,
+				21E8E22227120C8000A0F20F /* ProfileCell.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		21E8E253271298C700A0F20F /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				2196BB21270A8FE5000B04C2 /* FeedCell.swift */,
+			);
+			path = Feed;
 			sourceTree = "<group>";
 		};
 		B7EC4585C3142B5BA8312BE4 /* Pods */ = {
@@ -355,6 +366,7 @@
 				2196BB1E270A7ABB000B04C2 /* NotificationsController.swift in Sources */,
 				21E8E25027127AAB00A0F20F /* User.swift in Sources */,
 				2196BB24270A9079000B04C2 /* Extensions.swift in Sources */,
+				21E8E2522712947900A0F20F /* ProfileHeaderViewModel.swift in Sources */,
 				21E8E24E2712750C00A0F20F /* Constants.swift in Sources */,
 				2196BB1C270A7AAC000B04C2 /* ImageSelectorController.swift in Sources */,
 				2196BB18270A7A93000B04C2 /* FeedController.swift in Sources */,

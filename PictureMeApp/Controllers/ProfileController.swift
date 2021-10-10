@@ -11,8 +11,15 @@ class ProfileController: UICollectionViewController{
 
      //MARK: Properties
     
-    var user: User?
+    //user observer needed as we start off with an empty value
+    // Could have put it within completion handler
+    var user: User?{
+        didSet{
+            self.collectionView.reloadData()
+        }
+    }
     
+
      //MARK: Lifecycle
     
     override func viewDidLoad() {
@@ -44,6 +51,10 @@ class ProfileController: UICollectionViewController{
         //header
         collectionView.register(ProfileHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: ProfileHeader.identifier)
     }
+    
+    
+
+    
 }
 
  //MARK: UICollectionViewDataSource
@@ -61,8 +72,16 @@ extension ProfileController{
     // header
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        //called each time when it reloadsData()
+        print("[ProfileController] header called")
+
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: ProfileHeader.identifier, for: indexPath) as! ProfileHeader
-        
+        if let user = user{
+            header.viewModel = ProfileHeaderViewModel(user: user)
+        }else{
+            print("[ProfileController] user has not been set")
+        }
+ 
         return header
         
         
