@@ -5,4 +5,7 @@
 //  Created by Anton Veldanov on 10/9/21.
 //
 
-import Foundation
+import Firebase
+
+
+let COLLECTION_USERS = Firestore.firestore().collection("users")
