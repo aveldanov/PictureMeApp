@@ -18,19 +18,31 @@ class SearchController: UITableViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(UserCell.self, forCellReuseIdentifier: UserCell.identifier)
-        tableView.rowHeight = 64
+
         configureTableView()
+        fetchUsersCall()
     }
     
+    
+    
+     //MARK: API Calls
+    
+    func fetchUsersCall(){
+        UserService.fetchUsers { users in
+            print("[SearchController] Users\(users)")
+        }
+        
+        
+    }
     
     
      //MARK: Helpers
     
     
     private func configureTableView(){
-        view.backgroundColor = .systemPink
-
+        view.backgroundColor = .lightGray
+        tableView.register(UserCell.self, forCellReuseIdentifier: UserCell.identifier)
+        tableView.rowHeight = 64
         
     }
     
