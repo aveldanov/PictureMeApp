@@ -10,7 +10,7 @@ import UIKit
 class SearchController: UITableViewController{
      //MARK: Properties
     
-    
+    private var loadedUsers = [User]()
     
     
      //MARK: Lifecycle
@@ -18,7 +18,6 @@ class SearchController: UITableViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
         configureTableView()
         fetchUsersCall()
     }
@@ -29,10 +28,10 @@ class SearchController: UITableViewController{
     
     func fetchUsersCall(){
         UserService.fetchUsers { users in
-            print("[SearchController] Users\(users)")
+            //            print("[SearchController] Users\(users)")
+            self.loadedUsers = users
+            self.tableView.reloadData()
         }
-        
-        
     }
     
     
@@ -43,9 +42,7 @@ class SearchController: UITableViewController{
         view.backgroundColor = .lightGray
         tableView.register(UserCell.self, forCellReuseIdentifier: UserCell.identifier)
         tableView.rowHeight = 64
-        
     }
-    
 }
 
 
@@ -56,11 +53,14 @@ extension SearchController{
     
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return loadedUsers.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: UserCell.identifier, for: indexPath) as! UserCell
+        print(loadedUsers)
+        cell.user = loadedUsers[indexPath.row]
+        
         
         return cell
     }
