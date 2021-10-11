@@ -12,19 +12,12 @@ struct UserService{
         guard let uid = Auth.auth().currentUser?.uid else {
             return
         }
-        
         COLLECTION_USERS.document(uid).getDocument { snapshot, error in
             guard let dict = snapshot?.data() else{
                 return
             }
-            
             let user = User(dict: dict)
-            
             completion(user)
-            
         }
-        
-    }
-    
-    
+    }    
 }

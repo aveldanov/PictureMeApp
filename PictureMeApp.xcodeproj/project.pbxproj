@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		216E61482713C7A5006FAF9E /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216E61472713C7A5006FAF9E /* UserCell.swift */; };
 		2196BAFC270A77B8000B04C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2196BAFB270A77B8000B04C2 /* AppDelegate.swift */; };
 		2196BAFE270A77B8000B04C2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2196BAFD270A77B8000B04C2 /* SceneDelegate.swift */; };
 		2196BB03270A77B8000B04C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2196BB01270A77B8000B04C2 /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		143AF4DD4B1F918A7ED38B2B /* Pods_PictureMeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PictureMeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		216E61472713C7A5006FAF9E /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		2196BAF8270A77B8000B04C2 /* PictureMeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PictureMeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2196BAFB270A77B8000B04C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2196BAFD270A77B8000B04C2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +88,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		216E61462713C796006FAF9E /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				216E61472713C7A5006FAF9E /* UserCell.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		2196BAEF270A77B8000B04C2 = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +146,7 @@
 		2196BB10270A7884000B04C2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				216E61462713C796006FAF9E /* Search */,
 				21E8E253271298C700A0F20F /* Feed */,
 				21E8E22627120CA200A0F20F /* Profile */,
 				2196BB30270D7CF1000B04C2 /* CustomClasses */,
@@ -362,6 +373,7 @@
 				2196BB16270A792C000B04C2 /* MainTabController.swift in Sources */,
 				2196BAFE270A77B8000B04C2 /* SceneDelegate.swift in Sources */,
 				2196BB35270E7B0C000B04C2 /* AuthenticationViewModel.swift in Sources */,
+				216E61482713C7A5006FAF9E /* UserCell.swift in Sources */,
 				2196BB2F270D7C7B000B04C2 /* CustomAuthButton.swift in Sources */,
 				2196BB1E270A7ABB000B04C2 /* NotificationsController.swift in Sources */,
 				21E8E25027127AAB00A0F20F /* User.swift in Sources */,
