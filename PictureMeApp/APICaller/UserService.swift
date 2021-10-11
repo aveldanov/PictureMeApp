@@ -27,12 +27,8 @@ struct UserService{
             guard let snapshot = snapshot else{
                 return
             }
-            snapshot.documents.forEach{document in
-                print("DOC \(document.data())")
-                
-            }
-//            let users = snapshot.documents.map{User(dict: $0.data())}
-//            completion(users)
+            let users = snapshot.documents.map{User(dict: $0.data())}
+            completion(users)
         }
         
     }
