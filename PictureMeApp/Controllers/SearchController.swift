@@ -51,7 +51,6 @@ class SearchController: UITableViewController{
  //MARK: UITableViewDataSource
 extension SearchController{
     
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return loadedUsers.count
     }
@@ -61,9 +60,6 @@ extension SearchController{
         print(loadedUsers)
         cell.user = loadedUsers[indexPath.row]
         
-        
         return cell
-    }
-    
-    
+    }    
 }

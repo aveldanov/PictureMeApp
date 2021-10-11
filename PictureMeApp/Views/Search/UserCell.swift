@@ -11,7 +11,6 @@ class UserCell: UITableViewCell{
      //MARK: Properties
     static let identifier = "UserCell"
     
-    
     var user: User? {
         didSet{
             print("BOOOOOOOOM",user)
@@ -27,7 +26,6 @@ class UserCell: UITableViewCell{
         imageView.clipsToBounds = true
         imageView.backgroundColor = .lightGray
         imageView.image = #imageLiteral(resourceName: "venom-7")
-        
         return imageView
     }()
     
@@ -69,12 +67,9 @@ class UserCell: UITableViewCell{
         addSubview(stack)
         stack.centerY(inView: profileImageView, leftAnchor: profileImageView.rightAnchor, paddingLeft: 8)
         
-        
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
 }
