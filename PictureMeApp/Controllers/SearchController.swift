@@ -12,6 +12,9 @@ class SearchController: UITableViewController{
     
     private var loadedUsers = [User]()
     
+    private let searchController = UISearchController(searchResultsController: nil)
+    
+    
     
      //MARK: Lifecycle
     
@@ -58,8 +61,23 @@ extension SearchController{
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: UserCell.identifier, for: indexPath) as! UserCell
         print(loadedUsers)
-        cell.user = loadedUsers[indexPath.row]
+//        cell.view = loadedUsers[indexPath.row]
+        
+        cell.viewModel = UserCellViewModel(user: loadedUsers[indexPath.row])
         
         return cell
     }    
+}
+
+
+
+ //MARK: SearchController didSelectRowAt - Delegate
+extension SearchController{
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("[SearchController] user \(loadedUsers[indexPath.row].username) selected")
+        let vc = ProfileController(user: loadedUsers[indexPath.row])
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }
