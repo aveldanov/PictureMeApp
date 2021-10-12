@@ -23,6 +23,7 @@ class SearchController: UITableViewController{
         
         configureTableView()
         fetchUsersCall()
+        configureSearchController()
     }
     
     
@@ -46,6 +47,18 @@ class SearchController: UITableViewController{
         tableView.register(UserCell.self, forCellReuseIdentifier: UserCell.identifier)
         tableView.rowHeight = 64
     }
+    
+    
+    private func configureSearchController(){
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.searchBar.placeholder = "Search profile"
+        navigationItem.searchController = searchController
+        definesPresentationContext = false
+    }
+    
+    
 }
 
 
@@ -79,5 +92,12 @@ extension SearchController{
         let vc = ProfileController(user: loadedUsers[indexPath.row])
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+}
+
+
+extension SearchController: UISearchResultsUpdating{
+    
+    
     
 }
