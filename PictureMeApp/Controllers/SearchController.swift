@@ -12,9 +12,11 @@ class SearchController: UITableViewController{
     
     private var loadedUsers = [User]()
     private var filteredUsers = [User]()
-    
     private let searchController = UISearchController(searchResultsController: nil)
-    
+    private var inSearchMode: Bool{
+        
+        return searchController.isActive && !searchController.searchBar.text!.isEmpty
+    }
     
     
      //MARK: Lifecycle
@@ -69,7 +71,7 @@ class SearchController: UITableViewController{
 extension SearchController{
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return loadedUsers.count
+        return inSearchMode ? filteredUsers.count : loadedUsers.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -77,7 +79,8 @@ extension SearchController{
 //        print(loadedUsers)
 //        cell.view = loadedUsers[indexPath.row]
         
-        cell.viewModel = UserCellViewModel(user: loadedUsers[indexPath.row])
+        let user = inSearchMode ? filteredUsers[indexPath.row] : loadedUsers[indexPath.row]
+        cell.viewModel = UserCellViewModel(user: user)
         
         return cell
     }    
@@ -90,7 +93,8 @@ extension SearchController{
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        print("[SearchController] user \(loadedUsers[indexPath.row].username) selected")
-        let vc = ProfileController(user: loadedUsers[indexPath.row])
+        let user = inSearchMode ? filteredUsers[indexPath.row] : loadedUsers[indexPath.row]
+        let vc = ProfileController(user: user)
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -105,8 +109,9 @@ extension SearchController: UISearchResultsUpdating{
         }
 //        print("[SearchController] updateSearchResults tapped \(searchText) ")
         
-        filteredUsers = loadedUsers.filter{$0.username.contains(searchText) || $0.fullname.contains(searchText)}
+        filteredUsers = loadedUsers.filter{$0.username.lowercased().contains(searchText) || $0.fullname.lowercased().contains(searchText)}
 
+        self.tableView.reloadData()
     }
     
     

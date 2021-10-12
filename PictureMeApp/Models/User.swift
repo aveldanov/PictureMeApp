@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import Firebase
 
 struct User{
     
@@ -15,6 +15,13 @@ struct User{
     let profileImageURL: String
     let uid: String
     let username: String
+    
+    var isFollowed: Bool = false
+    
+    //checking if current uid == to the uid see above...
+    var isCurrentUser: Bool{
+        return Auth.auth().currentUser?.uid == uid
+    }
     
     //parsing Dictionary recieved from Firebase
     
