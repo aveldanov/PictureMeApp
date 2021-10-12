@@ -2,7 +2,7 @@
 
 ## The app allows to take snapshots, share with friends, like and comment
 
-### Authntication
+### Authentication
 ### Storage
 ### Database
 
