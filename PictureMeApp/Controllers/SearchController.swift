@@ -11,6 +11,7 @@ class SearchController: UITableViewController{
      //MARK: Properties
     
     private var loadedUsers = [User]()
+    private var filteredUsers = [User]()
     
     private let searchController = UISearchController(searchResultsController: nil)
     
@@ -73,7 +74,7 @@ extension SearchController{
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: UserCell.identifier, for: indexPath) as! UserCell
-        print(loadedUsers)
+//        print(loadedUsers)
 //        cell.view = loadedUsers[indexPath.row]
         
         cell.viewModel = UserCellViewModel(user: loadedUsers[indexPath.row])
@@ -88,15 +89,26 @@ extension SearchController{
 extension SearchController{
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("[SearchController] user \(loadedUsers[indexPath.row].username) selected")
+//        print("[SearchController] user \(loadedUsers[indexPath.row].username) selected")
         let vc = ProfileController(user: loadedUsers[indexPath.row])
         navigationController?.pushViewController(vc, animated: true)
     }
     
 }
 
-
+ //MARK: UISearchResultsUpdating
 extension SearchController: UISearchResultsUpdating{
+    func updateSearchResults(for searchController: UISearchController) {
+        
+        guard let searchText = searchController.searchBar.text?.lowercased() else{
+            return
+        }
+//        print("[SearchController] updateSearchResults tapped \(searchText) ")
+        
+        filteredUsers = loadedUsers.filter{$0.username.contains(searchText) || $0.fullname.contains(searchText)}
+
+    }
+    
     
     
     
