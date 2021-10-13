@@ -31,6 +31,11 @@ struct ProfileHeaderViewModel{
         return user.isCurrentUser ? .white : .systemBlue
     }
     
+    var followButtonTextColor: UIColor{
+        return user.isCurrentUser ? .black : .white        
+    }
+    
+    
     init(user: User){
         self.user = user
     }

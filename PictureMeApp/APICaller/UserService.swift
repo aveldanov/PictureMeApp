@@ -7,6 +7,9 @@
 
 import Firebase
 
+// simplify the type for completion
+typealias FirestoreCompletion = (Error?)->Void
+
 struct UserService{
     static func fetchUser(completion: @escaping(User)->Void){
         guard let uid = Auth.auth().currentUser?.uid else {
@@ -30,6 +33,14 @@ struct UserService{
             let users = snapshot.documents.map{User(dict: $0.data())}
             completion(users)
         }
+        
+    }
+    
+    static func followUser(uid: String, completion: @escaping (FirestoreCompletion)){
+        
+    }
+    
+    static func unfollowUser(uid: String, completion: @escaping (FirestoreCompletion)){
         
     }
 }
