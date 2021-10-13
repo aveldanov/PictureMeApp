@@ -188,9 +188,5 @@ class ProfileHeader: UICollectionReusableView{
         editProfileFollowButton.setTitle(viewModel.followButtonText, for: .normal)
         editProfileFollowButton.setTitleColor(viewModel.followButtonTextColor, for: .normal)
         editProfileFollowButton.backgroundColor = viewModel.followButtonBackgroundColor
-        
-        
-        
-        
     }
 }
