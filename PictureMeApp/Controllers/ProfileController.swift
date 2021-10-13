@@ -79,13 +79,14 @@ extension ProfileController{
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         //called each time when it reloadsData()
         print("[ProfileController] header called")
-
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: ProfileHeader.identifier, for: indexPath) as! ProfileHeader
-       
-            header.viewModel = ProfileHeaderViewModel(user: user)
-//            print("[ProfileController] user has not been set")
         
- 
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: ProfileHeader.identifier, for: indexPath) as! ProfileHeader
+        header.delegate = self
+        
+        header.viewModel = ProfileHeaderViewModel(user: user)
+        //            print("[ProfileController] user has not been set")
+        
+        
         return header
         
         
@@ -130,4 +131,28 @@ extension ProfileController: UICollectionViewDelegateFlowLayout{
     }
     
     
+}
+
+
+ //MARK: ProfileHeaderProtocolDelegate
+
+extension ProfileController: ProfileHeaderProtocolDelegate{
+    func header(_ profileHeader: ProfileHeader, didTapActionButtonFor user: User) {
+        print("[ProfileController] header func")
+        
+        
+        if user.isCurrentUser {
+            print("[ProfileController] Show Edit Profile Here")
+        } else if user.isFollowed{
+            print("[ProfileController] Unfollow user here")
+
+        }else{
+            UserService.followUser(uid: user.uid) { error in
+                print("[ProfileController] didFollow User. Update UI now")
+
+            }
+        }
+        
+    }
+ 
 }

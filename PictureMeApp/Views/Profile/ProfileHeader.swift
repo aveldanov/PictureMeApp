@@ -7,6 +7,14 @@
 
 import UIKit
 import SDWebImage
+// since no API calls in view -> we need a protocol to delegate the action
+
+protocol ProfileHeaderProtocolDelegate: AnyObject{
+    func header(_ profileHeader: ProfileHeader, didTapActionButtonFor user: User)
+}
+
+
+
 
 class ProfileHeader: UICollectionReusableView{
     
@@ -18,6 +26,8 @@ class ProfileHeader: UICollectionReusableView{
             configure()
         }
     }
+    
+    weak var delegate: ProfileHeaderProtocolDelegate?
     
     
     private let profileImageView: UIImageView = {
@@ -171,6 +181,11 @@ class ProfileHeader: UICollectionReusableView{
     
     @objc private func handleEditProfileFollowTapped(){
         print("[ProfileCell] handleEditProfileFollowTapped")
+        guard let viewModel = viewModel else{
+            return
+        }
+        
+        delegate?.header(self, didTapActionButtonFor: viewModel.user)
     }
     
      //MARK: Helpers

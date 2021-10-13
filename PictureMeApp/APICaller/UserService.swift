@@ -43,7 +43,7 @@ struct UserService{
         
         // An empty Dict as all we need is userID
         COLLECTION_FOLLOWING.document(currentUID).collection("user-following").document(uid).setData([:]) { error in
-            COLLECTION_FOLLOWERS.document(uid).collection("user-followers").document(uid).setData([:], completion: completion)
+            COLLECTION_FOLLOWERS.document(uid).collection("user-followers").document(currentUID).setData([:], completion: completion)
         }
     }
     
