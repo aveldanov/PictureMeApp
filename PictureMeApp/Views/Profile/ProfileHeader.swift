@@ -24,6 +24,7 @@ class ProfileHeader: UICollectionReusableView{
     var viewModel: ProfileHeaderViewModel?{
         didSet{
             configure()
+//            print(viewModel?.user.stats,"UOOOOOOOOOOOOOOO")
         }
     }
     
@@ -77,7 +78,7 @@ class ProfileHeader: UICollectionReusableView{
         label.numberOfLines = 0
         label.textColor = .black
         label.textAlignment = .center
-        label.attributedStatText(label: "followers", value: 2)
+//        label.attributedStatText(label: "followers", value: 2)
 
         return label
     }()
@@ -203,5 +204,8 @@ class ProfileHeader: UICollectionReusableView{
         editProfileFollowButton.setTitle(viewModel.followButtonText, for: .normal)
         editProfileFollowButton.setTitleColor(viewModel.followButtonTextColor, for: .normal)
         editProfileFollowButton.backgroundColor = viewModel.followButtonBackgroundColor
+        
+        followersLabel.attributedStatText(label: "Followers", value: viewModel.numberOfFollowers)
+        followingLabel.attributedStatText(label: "Following", value: viewModel.numberOfFollowing)
     }
 }

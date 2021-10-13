@@ -35,27 +35,36 @@ class ProfileController: UICollectionViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollectionView()
-        checkIfUserIsFollowed()
+        checkIfUserIsFollowedCall()
+        fetchUserStatsCall()
     }
     
     
      //MARK: API Calls
 
-    func checkIfUserIsFollowed(){
+    func checkIfUserIsFollowedCall(){
         UserService.checkIfUserIsFollowed(uid: user.uid) { isFollowed in
             self.user.isFollowed = isFollowed
             self.collectionView.reloadData()
         }
     }
     
+    func fetchUserStatsCall(){
+        UserService.fetchUserStats(uid: user.uid) { stats in
+                self.user.stats = stats
+                self.collectionView.reloadData()
+                print("TTTTTTTTTTTTTTTTTTTT", stats)
+        
+//            print("[ProfileController] user stats", stats, self.user.fullname)
+        }
+    }
     
      //MARK: Helpers
     
     private func configureCollectionView(){
         
         navigationItem.title = user.username
-        
-        
+
         collectionView.backgroundColor = .lightGray
         
         //cell
@@ -103,13 +112,6 @@ extension ProfileController{
 }
 
 
-//MARK: UICollectionViewDelegate
-extension ProfileController{
-   
-   
-}
-
-
 //MARK: ProfileController
 extension ProfileController: UICollectionViewDelegateFlowLayout{
    
@@ -146,13 +148,14 @@ extension ProfileController: UICollectionViewDelegateFlowLayout{
 extension ProfileController: ProfileHeaderProtocolDelegate{
     func header(_ profileHeader: ProfileHeader, didTapActionButtonFor user: User) {
         print("[ProfileController] header func")
-        
-        
+
         if user.isCurrentUser {
             print("[ProfileController] Show Edit Profile Here")
         } else if user.isFollowed{
             UserService.unfollowUser(uid: user.uid) { error in
                 print("[ProfileController] didUnfollow user here")
+//                self.fetchUserStatsCall()
+                self.user.stats.followers-=1
 
                 self.user.isFollowed = false
                 self.collectionView.reloadData()
@@ -161,12 +164,11 @@ extension ProfileController: ProfileHeaderProtocolDelegate{
         }else{
             UserService.followUser(uid: user.uid) { error in
                 print("[ProfileController] didFollow User. Update UI now")
-                
+//                self.fetchUserStatsCall()
+                self.user.stats.followers+=1
                 self.user.isFollowed = true
                 self.collectionView.reloadData()
             }
         }
-        
     }
- 
 }

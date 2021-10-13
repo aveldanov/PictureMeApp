@@ -24,11 +24,7 @@ class UserCell: UITableViewCell{
             configure()
         }
     }
-    
-    
-    
-    
-    
+
     private let profileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -38,7 +34,6 @@ class UserCell: UITableViewCell{
         return imageView
     }()
     
-    
     private let usernameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 14)
@@ -46,7 +41,6 @@ class UserCell: UITableViewCell{
         label.textColor = .black
         return label
     }()
-    
     
     private let fullnameLabel: UILabel = {
         let label = UILabel()

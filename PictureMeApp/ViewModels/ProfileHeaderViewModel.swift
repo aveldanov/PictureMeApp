@@ -27,6 +27,19 @@ struct ProfileHeaderViewModel{
         return user.isFollowed ? "Following" : "Follow"
     }
     
+    var numberOfFollowers: Int{
+        return user.stats.followers
+    }
+    
+    var numberOfFollowing: Int{
+        return user.stats.following
+    }
+    
+    var numberOfPosts: Int{
+        return 0
+    }
+    
+    
     var followButtonBackgroundColor: UIColor{
         return user.isCurrentUser ? .white : .systemBlue
     }
