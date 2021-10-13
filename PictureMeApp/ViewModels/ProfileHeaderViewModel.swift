@@ -5,7 +5,7 @@
 //  Created by Anton Veldanov on 10/9/21.
 //
 
-import Foundation
+import UIKit
 
 
 struct ProfileHeaderViewModel{
@@ -25,6 +25,10 @@ struct ProfileHeaderViewModel{
             return "Edit Profile"
         }
         return user.isFollowed ? "Following" : "Follow"
+    }
+    
+    var followButtonBackgroundColor: UIColor{
+        return user.isCurrentUser ? .white : .systemBlue
     }
     
     init(user: User){
