@@ -92,6 +92,18 @@ class MainTabController: UITabBarController{
         return nav
     }
     
+    func didFinishPickingMedia(_ picker: YPImagePicker){
+        picker.didFinishPicking { items, cancelled in
+            picker.dismiss(animated: true) {
+                guard let selectedImage = items.singlePhoto?.image else{
+                    return
+                }
+                
+                
+            }
+        }
+    }
+    
     
 }
 
@@ -118,8 +130,20 @@ extension MainTabController: UITabBarControllerDelegate{
         
         if index == 2{
             
+            var config = YPImagePickerConfiguration()
+            config.library.mediaType = .photo
+            config.shouldSaveNewPicturesToAlbum = false
+            config.startOnScreen = .library //from enum
+            config.screens = [.library]
+            config.hidesStatusBar = false
+            config.hidesBottomBar = false
+            config.library.maxNumberOfItems = 1
             
             
+            let picker = YPImagePicker(configuration: config)
+            picker.modalPresentationStyle = .fullScreen
+            
+            present(picker, animated: true, completion: nil)
         }
         
         
