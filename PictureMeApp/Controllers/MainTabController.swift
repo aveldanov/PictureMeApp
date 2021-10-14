@@ -98,8 +98,12 @@ class MainTabController: UITabBarController{
                 guard let selectedImage = items.singlePhoto?.image else{
                     return
                 }
-                print("didFinishPickingMedia")
+//                print("didFinishPickingMedia")
                 
+                let vc = UploadPostController()
+                let nav = UINavigationController(rootViewController: vc)
+                nav.modalPresentationStyle = .fullScreen
+                self.present(nav, animated: true, completion: nil)
             }
         }
     }

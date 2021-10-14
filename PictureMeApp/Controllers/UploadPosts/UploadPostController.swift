@@ -16,7 +16,7 @@ class UploadPostController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        configureUI()
         
     }
     
@@ -26,6 +26,8 @@ class UploadPostController: UIViewController{
     
     
     private func configureUI(){
+        
+        view.backgroundColor = .blue
         
         navigationItem.title = "Upload Post"
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(didTapCancel))
