@@ -12,6 +12,14 @@ class UploadPostController: UIViewController{
     
      //MARK: Properties
     
+    
+    private let photoImageView: UIImageView = {
+       let imageView = UIImageView()
+        
+        
+        return imageView
+    }()
+    
      //MARK: Lifecycle
     
     override func viewDidLoad() {
