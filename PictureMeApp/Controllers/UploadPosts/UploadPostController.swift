@@ -30,7 +30,7 @@ class UploadPostController: UIViewController{
         navigationItem.title = "Upload Post"
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(didTapCancel))
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Share", style: <#T##UIBarButtonItem.Style#>, target: <#T##Any?#>, action: <#T##Selector?#>)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Share", style: .done, target: self, action: #selector(didTapShare))
         
     }
     
@@ -39,6 +39,12 @@ class UploadPostController: UIViewController{
     
     @objc private func didTapCancel(){
         dismiss(animated: true, completion: nil)
+        
+    }
+    
+    @objc private func didTapShare(){
+        
+        print("[UploadPostController] didTapShare")
         
     }
     
