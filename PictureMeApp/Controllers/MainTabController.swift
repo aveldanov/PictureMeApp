@@ -98,7 +98,7 @@ class MainTabController: UITabBarController{
                 guard let selectedImage = items.singlePhoto?.image else{
                     return
                 }
-                
+                print("didFinishPickingMedia")
                 
             }
         }
@@ -144,6 +144,8 @@ extension MainTabController: UITabBarControllerDelegate{
             picker.modalPresentationStyle = .fullScreen
             
             present(picker, animated: true, completion: nil)
+            
+            didFinishPickingMedia(picker)
         }
         
         
