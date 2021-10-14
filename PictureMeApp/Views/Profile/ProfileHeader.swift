@@ -181,7 +181,7 @@ class ProfileHeader: UICollectionReusableView{
      //MARK: Actions
     
     @objc private func handleEditProfileFollowTapped(){
-        print("[ProfileCell] handleEditProfileFollowTapped")
+//        print("[ProfileCell] handleEditProfileFollowTapped")
         guard let viewModel = viewModel else{
             return
         }
@@ -193,7 +193,7 @@ class ProfileHeader: UICollectionReusableView{
     
     
     private func configure(){
-        print("[ProfileHeader] configure called...")
+//        print("[ProfileHeader] configure called...")
         guard let viewModel = viewModel else {
             return
         }

@@ -53,7 +53,7 @@ class ProfileController: UICollectionViewController{
         UserService.fetchUserStats(uid: user.uid) { stats in
                 self.user.stats = stats
                 self.collectionView.reloadData()
-                print("TTTTTTTTTTTTTTTTTTTT", stats)
+//                print("TTTTTTTTTTTTTTTTTTTT", stats)
         
 //            print("[ProfileController] user stats", stats, self.user.fullname)
         }
@@ -94,7 +94,7 @@ extension ProfileController{
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         //called each time when it reloadsData()
-        print("[ProfileController] header called")
+//        print("[ProfileController] header called")
         
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: ProfileHeader.identifier, for: indexPath) as! ProfileHeader
         header.delegate = self
@@ -147,13 +147,13 @@ extension ProfileController: UICollectionViewDelegateFlowLayout{
 
 extension ProfileController: ProfileHeaderProtocolDelegate{
     func header(_ profileHeader: ProfileHeader, didTapActionButtonFor user: User) {
-        print("[ProfileController] header func")
+//        print("[ProfileController] header func")
 
         if user.isCurrentUser {
-            print("[ProfileController] Show Edit Profile Here")
+//            print("[ProfileController] Show Edit Profile Here")
         } else if user.isFollowed{
             UserService.unfollowUser(uid: user.uid) { error in
-                print("[ProfileController] didUnfollow user here")
+//                print("[ProfileController] didUnfollow user here")
 //                self.fetchUserStatsCall()
                 self.user.stats.followers-=1
 
@@ -163,7 +163,7 @@ extension ProfileController: ProfileHeaderProtocolDelegate{
             
         }else{
             UserService.followUser(uid: user.uid) { error in
-                print("[ProfileController] didFollow User. Update UI now")
+//                print("[ProfileController] didFollow User. Update UI now")
 //                self.fetchUserStatsCall()
                 self.user.stats.followers+=1
                 self.user.isFollowed = true

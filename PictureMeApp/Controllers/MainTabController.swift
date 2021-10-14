@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import YPImagePicker
 
 class MainTabController: UITabBarController{
     
@@ -74,6 +75,9 @@ class MainTabController: UITabBarController{
         
         viewControllers = [feed, search, imageSelector, notifications, profile]
         tabBar.tintColor = .black
+        
+        
+        self.delegate = self
     }
     
     
@@ -103,7 +107,23 @@ extension MainTabController: AuthProtocolDelegate{
 
     }
     
+}
+
+ //MARK: UITabBarControllerDelegate
+
+extension MainTabController: UITabBarControllerDelegate{
     
-    
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        let index = viewControllers?.firstIndex(of: viewController)
+        
+        if index == 2{
+            
+            
+            
+        }
+        
+        
+        return true
+    }
     
 }

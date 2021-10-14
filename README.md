@@ -1,4 +1,4 @@
-# Picture-ME App [MVVM, Firebase, NoStoryboard, SDWebImages]
+# Picture-ME App [MVVM, Firebase, NoStoryboard, SDWebImages, YPImagePicker]
 
 ## The app allows to take snapshots, share with friends, like and comment
 
