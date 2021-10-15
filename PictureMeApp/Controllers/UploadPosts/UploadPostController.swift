@@ -56,6 +56,10 @@ class UploadPostController: UIViewController{
         photoImageView.centerX(inView: view)
         photoImageView.layer.cornerRadius = 10
         
+        view.addSubview(captionTextView)
+        
+        captionTextView.anchor(top: photoImageView.bottomAnchor, left: view.leftAnchor, paddingTop: 16, paddingLeft: 12, paddingRight: 12,  height: 64)
+        
     }
     
     
