@@ -17,6 +17,7 @@ class UploadPostController: UIViewController{
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
+        imageView.image = #imageLiteral(resourceName: "venom-7")
         return imageView
     }()
     
