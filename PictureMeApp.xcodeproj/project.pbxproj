@@ -10,6 +10,7 @@
 		216E61482713C7A5006FAF9E /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216E61472713C7A5006FAF9E /* UserCell.swift */; };
 		216E614A2715294B006FAF9E /* UserCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216E61492715294B006FAF9E /* UserCellViewModel.swift */; };
 		216E614C2718CA56006FAF9E /* UploadPostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216E614B2718CA55006FAF9E /* UploadPostController.swift */; };
+		216E614F2718D4F3006FAF9E /* CustomInputTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216E614E2718D4F3006FAF9E /* CustomInputTextView.swift */; };
 		2196BAFC270A77B8000B04C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2196BAFB270A77B8000B04C2 /* AppDelegate.swift */; };
 		2196BAFE270A77B8000B04C2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2196BAFD270A77B8000B04C2 /* SceneDelegate.swift */; };
 		2196BB03270A77B8000B04C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2196BB01270A77B8000B04C2 /* Main.storyboard */; };
@@ -46,6 +47,7 @@
 		216E61472713C7A5006FAF9E /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		216E61492715294B006FAF9E /* UserCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellViewModel.swift; sourceTree = "<group>"; };
 		216E614B2718CA55006FAF9E /* UploadPostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPostController.swift; sourceTree = "<group>"; };
+		216E614E2718D4F3006FAF9E /* CustomInputTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputTextView.swift; sourceTree = "<group>"; };
 		2196BAF8270A77B8000B04C2 /* PictureMeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PictureMeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2196BAFB270A77B8000B04C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2196BAFD270A77B8000B04C2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -162,7 +164,6 @@
 				216E61462713C796006FAF9E /* Search */,
 				21E8E253271298C700A0F20F /* Feed */,
 				21E8E22627120CA200A0F20F /* Profile */,
-				2196BB30270D7CF1000B04C2 /* CustomClasses */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -204,6 +205,7 @@
 		2196BB14270A78BD000B04C2 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				2196BB30270D7CF1000B04C2 /* CustomClasses */,
 				2196BB23270A9079000B04C2 /* Extensions.swift */,
 				21E8E24D2712750C00A0F20F /* Constants.swift */,
 			);
@@ -224,6 +226,7 @@
 			children = (
 				2196BB2E270D7C7B000B04C2 /* CustomAuthButton.swift */,
 				2196BB2A270BE373000B04C2 /* CustomAuthTextField.swift */,
+				216E614E2718D4F3006FAF9E /* CustomInputTextView.swift */,
 			);
 			path = CustomClasses;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 				2196BAFC270A77B8000B04C2 /* AppDelegate.swift in Sources */,
 				2196BB1A270A7AA1000B04C2 /* SearchController.swift in Sources */,
 				2196BB16270A792C000B04C2 /* MainTabController.swift in Sources */,
+				216E614F2718D4F3006FAF9E /* CustomInputTextView.swift in Sources */,
 				2196BAFE270A77B8000B04C2 /* SceneDelegate.swift in Sources */,
 				2196BB35270E7B0C000B04C2 /* AuthenticationViewModel.swift in Sources */,
 				216E61482713C7A5006FAF9E /* UserCell.swift in Sources */,

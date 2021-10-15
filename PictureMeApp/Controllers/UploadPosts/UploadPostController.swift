@@ -14,11 +14,19 @@ class UploadPostController: UIViewController{
     
     
     private let photoImageView: UIImageView = {
-       let imageView = UIImageView()
-        
-        
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         return imageView
     }()
+    
+    private let captionTextView: UITextView = {
+        let textView = UITextView()
+        
+        
+        return textView
+    }()
+    
     
      //MARK: Lifecycle
     
@@ -41,6 +49,12 @@ class UploadPostController: UIViewController{
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(didTapCancel))
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Share", style: .done, target: self, action: #selector(didTapShare))
+        
+        view.addSubview(photoImageView)
+        photoImageView.setDimensions(height: 180, width: 180)
+        photoImageView.anchor(top: view.topAnchor)
+        photoImageView.centerX(inView: view)
+        photoImageView.layer.cornerRadius = 10
         
     }
     
