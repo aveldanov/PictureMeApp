@@ -21,10 +21,11 @@ class UploadPostController: UIViewController{
         return imageView
     }()
     
-    private let captionTextView: UITextView = {
-        let textView = UITextView()
-        textView.backgroundColor = .red
-        
+    private let captionTextView: CustomInputTextView = {
+        let textView = CustomInputTextView()
+        textView.placeholderText = "Enter caption..."
+        textView.font = UIFont.systemFont(ofSize: 16)
+        textView.delegate = self
         return textView
     }()
     
@@ -67,10 +68,29 @@ class UploadPostController: UIViewController{
         
         
         view.addSubview(captionTextView)
-        captionTextView.anchor(top: photoImageView.bottomAnchor, left: view.leftAnchor, paddingTop: 16, paddingLeft: 12, paddingRight: 12,  height: 64)
+        captionTextView.anchor(top: photoImageView.bottomAnchor,
+                               left: view.leftAnchor,
+                               right: view.rightAnchor,
+                               paddingTop: 16,
+                               paddingLeft: 12,
+                               paddingRight: 12,
+                               height: 64)
         
         view.addSubview(characterCountLabel)
         characterCountLabel.anchor(bottom: captionTextView.bottomAnchor, right: view.rightAnchor, paddingRight: 12)
+        
+        
+
+        
+    }
+    
+    
+    private func checkMaxLength(_ textView: UITextView){
+        
+        if (textView.text.count) > 100 {
+            textView.deleteBackward()
+            
+        }
         
     }
     
@@ -87,5 +107,14 @@ class UploadPostController: UIViewController{
         print("[UploadPostController] didTapShare")
         
     }
+    
+}
+
+
+extension UploadPostController: UITextViewDelegate{
+    
+    
+    
+    
     
 }
