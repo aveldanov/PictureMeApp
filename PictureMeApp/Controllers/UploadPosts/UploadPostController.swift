@@ -21,7 +21,7 @@ class UploadPostController: UIViewController{
         return imageView
     }()
     
-    private let captionTextView: CustomInputTextView = {
+    private lazy var captionTextView: CustomInputTextView = {
         let textView = CustomInputTextView()
         textView.placeholderText = "Enter caption..."
         textView.font = UIFont.systemFont(ofSize: 16)
@@ -77,7 +77,7 @@ class UploadPostController: UIViewController{
                                height: 64)
         
         view.addSubview(characterCountLabel)
-        characterCountLabel.anchor(bottom: captionTextView.bottomAnchor, right: view.rightAnchor, paddingRight: 12)
+        characterCountLabel.anchor(bottom: captionTextView.bottomAnchor, right: view.rightAnchor, paddingBottom: -8, paddingRight: 12)
         
         
 
@@ -111,9 +111,20 @@ class UploadPostController: UIViewController{
 }
 
 
+ //MARK: UITextViewDelegate
+
 extension UploadPostController: UITextViewDelegate{
     
-    
+    func textViewDidChange(_ textView: UITextView) {
+        checkMaxLength(textView)
+        
+        let count = textView.text.count
+        characterCountLabel.text = "\(count)/100"
+        
+        
+        // Use NotificationCenter instead
+//        captionTextView.placeholderLabel.isHidden = !captionTextView.text.isEmpty
+    }
     
     
     

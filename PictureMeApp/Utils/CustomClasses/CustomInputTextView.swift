@@ -18,7 +18,7 @@ class CustomInputTextView: UITextView{
         }
     }
     
-    private let placeholderLabel: UILabel = {
+     private let placeholderLabel: UILabel = {
         let label = UILabel()
         label.textColor = .lightGray
         return label
