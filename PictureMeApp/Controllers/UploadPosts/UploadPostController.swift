@@ -12,21 +12,20 @@ class UploadPostController: UIViewController{
     
      //MARK: Properties
     
-//    var selectedImage: UIImage? {
-//        didSet{
-//            photoImageView.image = selectedImage
-//        }
+    var selectedImage: UIImage? {
+        didSet{
+            photoImageView.image = selectedImage
+        }
+    }
+    
+//    init(selectedImage: UIImage){
+//        self.photoImageView.image = selectedImage
+//        super.init(nibName: nil, bundle: nil)
 //    }
-//    var selectedImage: UIImage
-    
-    init(selectedImage: UIImage){
-        self.photoImageView.image = selectedImage
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+//
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
     
     
     private let photoImageView: UIImageView = {
@@ -123,8 +122,21 @@ class UploadPostController: UIViewController{
         print("[UploadPostController] didTapShare")
 //        PostService.uploadPost(caption: captionTextView.text)
         
+        guard let image = selectedImage else {
+            return
+        }
+        guard let caption = captionTextView.text else{
+            return
+        }
         
-        
+        PostService.uploadPost(caption: caption, image: image) { error in
+            if let error = error{
+                print("[UploadPostController] PostService Error")
+                return
+            }
+            
+            
+        }
     }
     
 }
