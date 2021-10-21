@@ -12,12 +12,28 @@ class UploadPostController: UIViewController{
     
      //MARK: Properties
     
+//    var selectedImage: UIImage? {
+//        didSet{
+//            photoImageView.image = selectedImage
+//        }
+//    }
+//    var selectedImage: UIImage
+    
+    init(selectedImage: UIImage){
+        self.photoImageView.image = selectedImage
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     
     private let photoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.image = #imageLiteral(resourceName: "venom-7")
+//        imageView.image = #imageLiteral(resourceName: "venom-7")
         return imageView
     }()
     
@@ -105,6 +121,9 @@ class UploadPostController: UIViewController{
     @objc private func didTapShare(){
         
         print("[UploadPostController] didTapShare")
+//        PostService.uploadPost(caption: captionTextView.text)
+        
+        
         
     }
     

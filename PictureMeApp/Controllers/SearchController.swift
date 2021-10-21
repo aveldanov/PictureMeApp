@@ -23,7 +23,6 @@ class SearchController: UITableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configureTableView()
         fetchUsersCall()
         configureSearchController()

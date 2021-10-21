@@ -89,8 +89,4 @@ extension FeedController: UICollectionViewDelegateFlowLayout{
         height += 60 // comments
         return CGSize(width: width, height: height)
     }
-    
-    
-    
-    
 }
