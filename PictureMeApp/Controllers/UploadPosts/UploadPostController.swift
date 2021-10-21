@@ -136,6 +136,8 @@ class UploadPostController: UIViewController{
             }
             
             
+            print("[UploadPostController] PostService Success")
+            self.dismiss(animated: true, completion: nil)
         }
     }
     
