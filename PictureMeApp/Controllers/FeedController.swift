@@ -14,13 +14,30 @@ class FeedController: UICollectionViewController{
     
     weak var delegate: AuthProtocolDelegate?
     
-    
+    private var loadedPosts = [Post]()
     
      //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        fetchPostsCall()
     }
+    
+    
+     //MARK: API Calls
+    
+    func fetchPostsCall(){
+        
+        
+        PostService.fetchPosts { posts in
+            self.loadedPosts = posts
+            self.collectionView.reloadData()
+        }
+        
+    }
+    
+    
+    
     
      //MARK: Helpers
     
@@ -51,20 +68,13 @@ class FeedController: UICollectionViewController{
         } catch{
             print("[MainTabController] Failed to sign out")
         }
-    }
-    
-    
+    } 
 }
-
-
-
-
-
 
  //MARK: UICollectionView DataSource
 extension FeedController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return loadedPosts.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
