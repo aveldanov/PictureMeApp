@@ -13,5 +13,6 @@ target 'PictureMeApp' do
 	pod 'SDWebImage'
 	pod 'YPImagePicker'
 	pod 'Firebase/Storage'
+	pod 'JGProgressHUD'
 
 end
