@@ -159,3 +159,10 @@ extension MainTabController: UITabBarControllerDelegate{
     }
     
 }
+
+
+extension MainTabController: UploadPostControllerDelegate{
+    
+    
+    
+}

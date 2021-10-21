@@ -7,10 +7,16 @@
 
 import UIKit
 
+// use UploadPostControllerDelegate protocol to switch to Tab0 of MainTab Controller
+protocol UploadPostControllerDelegate: AnyObject{
+    func controllerDidFinishUploadingPost(_ controller: UploadPostController)
+}
 
 class UploadPostController: UIViewController{
     
      //MARK: Properties
+    
+    weak var delegate: UploadPostControllerDelegate?
     
     var selectedImage: UIImage? {
         didSet{
@@ -137,8 +143,7 @@ class UploadPostController: UIViewController{
             
             
             print("[UploadPostController] PostService Success")
-            self.dismiss(animated: true, completion: nil)
-
+            self.delegate?.controllerDidFinishUploadingPost(self)
         }
     }
     
