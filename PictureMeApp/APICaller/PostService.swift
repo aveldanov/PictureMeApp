@@ -32,4 +32,12 @@ struct PostService{
     
     
     
+    static func fetchPosts(){
+        COLLECTION_POSTS.getDocuments{(snapshot,error) in
+            
+        }
+    }
+    
+    
+    
 }
