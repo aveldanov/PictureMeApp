@@ -103,6 +103,7 @@ class MainTabController: UITabBarController{
 //                let vc = UploadPostController(selectedImage: selectedImage)
                 let vc = UploadPostController()
                 vc.selectedImage = selectedImage
+                vc.delegate = self
                 let nav = UINavigationController(rootViewController: vc)
                 nav.modalPresentationStyle = .fullScreen
                 self.present(nav, animated: false, completion: nil)
@@ -161,8 +162,12 @@ extension MainTabController: UITabBarControllerDelegate{
 }
 
 
+ //MARK: UploadPostControllerDelegate
 extension MainTabController: UploadPostControllerDelegate{
-    
-    
-    
+    func controllerDidFinishUploadingPost(_ controller: UploadPostController) {
+        print("[MainTabController] UploadPostControllerDelegate - DONE")
+        selectedIndex = 0 //first tab
+        
+        controller.dismiss(animated: true, completion: nil)
+    }
 }
