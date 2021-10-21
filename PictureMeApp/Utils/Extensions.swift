@@ -10,12 +10,24 @@ import JGProgressHUD
 
 extension UIViewController{
     
+    static let hud = JGProgressHUD(style: .dark)
+    
     func configureGradientLayer(){
         let gradient = CAGradientLayer()
         gradient.colors = [UIColor.systemBlue.cgColor, UIColor.systemMint.cgColor]
         gradient.locations = [0, 1]
         view.layer.addSublayer(gradient)
         gradient.frame = view.bounds
+    }
+    
+    
+    func showLoader(_ show: Bool){
+        view.endEditing(true) //when showLoader is called - it forces to end editing like typing
+        if show{
+            UIViewController.hud.show(in: view)
+        }else{
+            UIViewController.hud.dismiss()
+        }
     }
 
 }

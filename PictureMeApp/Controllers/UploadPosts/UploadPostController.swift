@@ -135,13 +135,15 @@ class UploadPostController: UIViewController{
             return
         }
         
+        
+        showLoader(true)
         PostService.uploadPost(caption: caption, image: image) { error in
+            self.showLoader(false)
+
             if let error = error{
                 print("[UploadPostController] PostService Error")
                 return
             }
-            
-            
             print("[UploadPostController] PostService Success")
             self.delegate?.controllerDidFinishUploadingPost(self)
         }
