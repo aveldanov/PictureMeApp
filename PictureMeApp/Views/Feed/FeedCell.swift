@@ -11,6 +11,14 @@ class FeedCell: UICollectionViewCell{
     
      //MARK: Properties
     
+    static let identifier = "FeedCell"
+    
+    var viewModel: PostViewModel?{
+        didSet{
+            configure()
+        }
+    }
+    
     private let profileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -73,7 +81,7 @@ class FeedCell: UICollectionViewCell{
     
     private let captionLabel: UILabel = {
         let label = UILabel()
-        label.text = "Some test caption label"
+//        label.text = "Some test caption label"
         label.textColor = .systemGray2
         label.font = UIFont.systemFont(ofSize: 14)
         return label
@@ -153,6 +161,15 @@ class FeedCell: UICollectionViewCell{
         addSubview(stackView)
         stackView.anchor(top: postImageView.bottomAnchor, width: 120, height: 50)
         
+    }
+    
+    
+    func configure(){
+        guard let viewModel = viewModel else{
+            return
+        }
+        captionLabel.text = viewModel.caption
+        postImageView.sd_setImage(with: viewModel.imageURL)
     }
     
 }

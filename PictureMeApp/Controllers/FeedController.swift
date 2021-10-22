@@ -8,13 +8,13 @@
 import UIKit
 import Firebase
 
-private let identifier = "Cell"
 
 class FeedController: UICollectionViewController{
     
     weak var delegate: AuthProtocolDelegate?
     
     private var loadedPosts = [Post]()
+
     
      //MARK: Lifecycle
     override func viewDidLoad() {
@@ -43,15 +43,15 @@ class FeedController: UICollectionViewController{
     
     func configureUI(){
         collectionView.backgroundColor = .white
-        collectionView.register(FeedCell.self, forCellWithReuseIdentifier: identifier)
+        collectionView.register(FeedCell.self, forCellWithReuseIdentifier: FeedCell.identifier)
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout",
                                                             style: .plain,
                                                             target: self,
                                                             action: #selector(handleLogout))
         navigationItem.title = "Feed"
-        
     }
+
     
      //MARK: Actions
     
@@ -79,8 +79,9 @@ extension FeedController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! FeedCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FeedCell.identifier, for: indexPath) as! FeedCell
         
+        cell.viewModel = PostViewModel(post: loadedPosts[indexPath.row])
         return cell
     }
     
