@@ -32,7 +32,7 @@ class FeedCell: UICollectionViewCell{
     private lazy var usernameButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitleColor(.black, for: .normal)
-        button.setTitle("venom", for: .normal)
+//        button.setTitle("venom", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 13)
         button.addTarget(self, action: #selector(didTapUserName), for: .touchUpInside)
         return button
@@ -73,7 +73,7 @@ class FeedCell: UICollectionViewCell{
     
     private let likesLabel: UILabel = {
         let label = UILabel()
-        label.text = "1 like"
+//        label.text = "1 like"
         label.textColor = .systemGray6
         label.font = UIFont.boldSystemFont(ofSize: 13)
         return label
@@ -170,6 +170,9 @@ class FeedCell: UICollectionViewCell{
         }
         captionLabel.text = viewModel.caption
         postImageView.sd_setImage(with: viewModel.imageURL)
+        
+        profileImageView.sd_setImage(with: viewModel.userProfileImageURL)
+        usernameButton.setTitle(viewModel.username, for: .normal)
     }
     
 }
