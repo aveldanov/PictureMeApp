@@ -174,6 +174,8 @@ class FeedCell: UICollectionViewCell{
         
         profileImageView.sd_setImage(with: viewModel.userProfileImageURL)
         usernameButton.setTitle(viewModel.username, for: .normal)
+        
+        likesLabel.text = viewModel.likesLabelText
     }
     
 }

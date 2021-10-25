@@ -50,6 +50,11 @@ class FeedController: UICollectionViewController{
                                                             target: self,
                                                             action: #selector(handleLogout))
         navigationItem.title = "Feed"
+        
+        // pull data refresh
+        let refresher = UIRefreshControl()
+        refresher.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+        collectionView.refreshControl = refresher
     }
 
     
@@ -68,7 +73,16 @@ class FeedController: UICollectionViewController{
         } catch{
             print("[MainTabController] Failed to sign out")
         }
-    } 
+    }
+    
+    
+    
+    @objc func handleRefresh(){
+        
+        
+    }
+    
+    
 }
 
  //MARK: UICollectionView DataSource
