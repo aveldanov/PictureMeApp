@@ -172,7 +172,7 @@ extension MainTabController: UploadPostControllerDelegate{
         
         controller.dismiss(animated: true, completion: nil)
         
-        
+        // dig for FeedController then refresh
         guard let feedNav = viewControllers?.first as? UINavigationController else{
             return
         }
