@@ -31,6 +31,15 @@ struct PostViewModel{
         return post.onwerUsername
     }
     
+    var likesLabelText: String{
+        if post.likes != 1{
+            return "\(post.likes) like"
+        }else{
+            return "\(post.likes) likes"
+        }
+        
+    }
+    
     init(post: Post){
         self.post = post
     }

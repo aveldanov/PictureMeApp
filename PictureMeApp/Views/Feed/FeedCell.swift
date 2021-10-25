@@ -24,7 +24,8 @@ class FeedCell: UICollectionViewCell{
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.isUserInteractionEnabled = true
-        imageView.image = #imageLiteral(resourceName: "venom-7")
+//        imageView.image = #imageLiteral(resourceName: "venom-7")
+        imageView.backgroundColor = .lightGray
         return imageView
     }()
     
