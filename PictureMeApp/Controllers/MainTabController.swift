@@ -101,8 +101,10 @@ class MainTabController: UITabBarController{
 //                print("didFinishPickingMedia")
                 
 //                let vc = UploadPostController(selectedImage: selectedImage)
+                
                 let vc = UploadPostController()
                 vc.selectedImage = selectedImage
+                vc.currentUser = self.user
                 vc.delegate = self
                 let nav = UINavigationController(rootViewController: vc)
                 nav.modalPresentationStyle = .fullScreen

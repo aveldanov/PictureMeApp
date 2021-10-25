@@ -16,6 +16,9 @@ struct Post{
     let ownerUID: String
     let timestamp: Timestamp
     let postID: String
+    let ownerImageURL: String
+    let onwerUsername: String
+    
     
     
     // postID is not part of dic because of Firebase structure
@@ -26,6 +29,8 @@ struct Post{
         self.imageURL = dict["imageURL"] as? String ?? ""
         self.ownerUID = dict["ownerUID"] as? String ?? ""
         self.timestamp = dict["timestamp"] as? Timestamp ?? Timestamp()
+        self.ownerImageURL = dict["ownerImageURL"] as? String ?? ""
+        self.onwerUsername = dict["onwerUsername"] as? String ?? ""
     }
     
     

@@ -23,6 +23,14 @@ struct PostViewModel{
         return post.likes
     }
     
+    var userProfileImageURL: URL?{
+        return URL(string: post.ownerImageURL)
+    }
+    
+    var username: String{
+        return post.onwerUsername
+    }
+    
     init(post: Post){
         self.post = post
     }

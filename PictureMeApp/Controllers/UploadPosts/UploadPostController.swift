@@ -17,6 +17,8 @@ class UploadPostController: UIViewController{
      //MARK: Properties
     
     weak var delegate: UploadPostControllerDelegate?
+    var currentUser: User?
+    
     
     var selectedImage: UIImage? {
         didSet{
@@ -135,9 +137,13 @@ class UploadPostController: UIViewController{
             return
         }
         
+        guard let user = currentUser else{
+            return
+        }
+        
         
         showLoader(true)
-        PostService.uploadPost(caption: caption, image: image) { error in
+        PostService.uploadPost(caption: caption, image: image, user: user) { error in
             self.showLoader(false)
 
             if let error = error{

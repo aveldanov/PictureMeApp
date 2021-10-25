@@ -12,7 +12,7 @@ import FirebaseFirestore
 
 struct PostService{
     // FirestoreCompletion - alies created earlier "(Error?)->Void"
-    static func uploadPost(caption: String, image: UIImage, completion: @escaping (FirestoreCompletion)){
+    static func uploadPost(caption: String, image: UIImage,user: User, completion: @escaping (FirestoreCompletion)){
         guard let uid = Auth.auth().currentUser?.uid else{
             return
         }
@@ -23,7 +23,9 @@ struct PostService{
                         "timestamp": Timestamp(date: Date()),
                         "likes": 0,
                         "imageURL": imageURL,
-                        "ownerUID": uid
+                        "ownerUID": uid,
+                        "onwerUsername": user.username,
+                        "ownerImageURL": user.profileImageURL
                         ]
             
             COLLECTION_POSTS.addDocument(data: data, completion: completion)
