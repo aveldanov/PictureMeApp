@@ -33,14 +33,12 @@ struct User{
         self.profileImageURL = dict["profileImageURL"] as? String ?? ""
         self.uid = dict["uid"] as? String ?? ""
         self.username = dict["username"] as? String ?? ""
-        self.stats = UserStats(followers: 0, following: 0)
+        self.stats = UserStats(followers: 0, following: 0, posts: 0)
     }
-    
 }
 
 struct UserStats{
     var followers: Int
     var following: Int
-//    let posts: Int
-    
+    let posts: Int
 }

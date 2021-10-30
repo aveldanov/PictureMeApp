@@ -69,7 +69,7 @@ class ProfileHeader: UICollectionReusableView{
         label.numberOfLines = 0
         label.textColor = .black
         label.textAlignment = .center
-        label.attributedStatText(label: "posts", value: 5)
+//        label.attributedStatText(label: "posts", value: 5)
         return label
     }()
     
@@ -88,7 +88,7 @@ class ProfileHeader: UICollectionReusableView{
         label.numberOfLines = 0
         label.textColor = .black
         label.textAlignment = .center
-        label.attributedStatText(label: "following", value: 1)
+//        label.attributedStatText(label: "following", value: 1)
 
         return label
     }()
@@ -207,5 +207,6 @@ class ProfileHeader: UICollectionReusableView{
         
         followersLabel.attributedStatText(label: "Followers", value: viewModel.numberOfFollowers)
         followingLabel.attributedStatText(label: "Following", value: viewModel.numberOfFollowing)
+        postLabel.attributedStatText(label: "Posts", value: viewModel.numberOfPosts)
     }
 }

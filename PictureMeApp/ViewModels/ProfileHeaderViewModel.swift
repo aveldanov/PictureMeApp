@@ -36,7 +36,7 @@ struct ProfileHeaderViewModel{
     }
     
     var numberOfPosts: Int{
-        return 0
+        return user.stats.posts
     }
     
     

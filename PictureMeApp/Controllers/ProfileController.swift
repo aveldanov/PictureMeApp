@@ -94,6 +94,8 @@ extension ProfileController{
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProfileCell.identifier, for: indexPath) as! ProfileCell
+        
+        cell.viewModel = PostViewModel(post: loadedPosts[indexPath.row])
         return cell
     }
     
@@ -117,6 +119,25 @@ extension ProfileController{
     
     
 }
+
+
+ //MARK: UICollectionViewDelegate
+
+extension ProfileController{
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = FeedController(collectionViewLayout: UICollectionViewFlowLayout())
+        vc.post = loadedPosts[indexPath.row]
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
+}
+
+
+
+
+
 
 
 //MARK: ProfileController

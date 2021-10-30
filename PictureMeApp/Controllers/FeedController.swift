@@ -15,6 +15,7 @@ class FeedController: UICollectionViewController{
     
     private var loadedPosts = [Post]()
 
+    var post: Post?
     
      //MARK: Lifecycle
     override func viewDidLoad() {
@@ -27,7 +28,9 @@ class FeedController: UICollectionViewController{
      //MARK: API Calls
     
     func fetchPostsCall(){
-        
+        guard post == nil else{
+            return
+        }
         
         PostService.fetchPosts { posts in
             self.loadedPosts = posts
@@ -46,10 +49,16 @@ class FeedController: UICollectionViewController{
         collectionView.backgroundColor = .white
         collectionView.register(FeedCell.self, forCellWithReuseIdentifier: FeedCell.identifier)
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout",
-                                                            style: .plain,
-                                                            target: self,
-                                                            action: #selector(handleLogout))
+        
+        if post == nil{
+            navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout",
+                                                                style: .plain,
+                                                                target: self,
+                                                                action: #selector(handleLogout))
+        }
+        
+        
+        
         navigationItem.title = "Feed"
         
         // pull data refresh
@@ -89,14 +98,20 @@ class FeedController: UICollectionViewController{
  //MARK: UICollectionView DataSource
 extension FeedController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return loadedPosts.count
+        return post != nil ? 1 : loadedPosts.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FeedCell.identifier, for: indexPath) as! FeedCell
         
-        cell.viewModel = PostViewModel(post: loadedPosts[indexPath.row])
+        if let post = post{
+            cell.viewModel = PostViewModel(post: post)
+        }else{
+            cell.viewModel = PostViewModel(post: loadedPosts[indexPath.row])
+        }
+        
+        
         return cell
     }
     

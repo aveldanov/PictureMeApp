@@ -48,9 +48,8 @@ struct PostService{
     
     static func fetchPosts(forUser uid: String,completion: @escaping([Post])->Void ){
         let query = COLLECTION_POSTS
-            .order(by: "timestamp", descending: true)
             .whereField("ownerUID", isEqualTo: uid)
-        
+
         query.getDocuments{(snapshot, error) in
             guard let documents = snapshot?.documents else{
                 return
